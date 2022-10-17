@@ -9,11 +9,11 @@ export default function IngredientList(props) {
   const ingredients = props.ingredients
 
   return (
-    <ul>
-      {ingredients.map((item) =>{
-        return(
-          <Ingredient item={item} onDelete={props.onDelete}/>
-        )
+    <ul
+      class="striped"
+    >
+      {ingredients.map((item) => {
+        return <Ingredient item={item} onDelete={props.onDelete} />;
       })}
     </ul>
   );

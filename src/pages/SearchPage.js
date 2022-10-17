@@ -17,7 +17,7 @@ export default function SearchPage() {
     },
   });
 
-  const [ingredients, setIngredients] = useState([]);
+  const [ingredients, setIngredients] = useState(["Bread", "Rice", "Soup"]);
 
   // Add ingredients function.
   function addIngredient() {
@@ -64,8 +64,11 @@ export default function SearchPage() {
           </form>
         </div>
 
-        <div id="addedList">
-          <IngredientList ingredients={ingredients} onDelete={deleteIngredient} />
+        <div  id="addedList">
+          <IngredientList
+            ingredients={ingredients}
+            onDelete={deleteIngredient}
+          />
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
