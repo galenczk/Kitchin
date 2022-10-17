@@ -9,6 +9,11 @@ export default function Ingredient(props) {
     <li>
       <div>
         <p>{props.item}</p>
+        
+        <Button 
+          label="delete"
+          onClick={() => {props.onDelete(props.item)}}
+          />
       </div>
     </li>
   );

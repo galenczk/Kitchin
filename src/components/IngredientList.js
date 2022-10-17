@@ -6,15 +6,15 @@ import Ingredient from "./Ingredient";
 
 export default function IngredientList(props) {
 
+  const ingredients = props.ingredients
+
   return (
     <ul>
-      {props.ingredients.map((item) =>{
+      {ingredients.map((item) =>{
         return(
-          <Ingredient item={item}/>
+          <Ingredient item={item} onDelete={props.onDelete}/>
         )
       })}
-        
-      
     </ul>
   );
 }

@@ -25,6 +25,11 @@ export default function SearchPage() {
     formik.resetForm();
   }
 
+  // Delete ingredient function
+  function deleteIngredient(name){
+    setIngredients(ingredients.filter(item => item !== name))
+}
+
   // Page navigation.
   const navigate = useNavigate();
 
@@ -60,7 +65,7 @@ export default function SearchPage() {
         </div>
 
         <div id="addedList">
-          <IngredientList ingredients={ingredients} />
+          <IngredientList ingredients={ingredients} onDelete={deleteIngredient} />
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
