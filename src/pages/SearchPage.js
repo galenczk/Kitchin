@@ -30,33 +30,48 @@ export default function SearchPage() {
   // DOM stuff
   return (
     <>
-      <h1>Add ingredients for recipe search</h1>
-      <form>
-        <input
-          type="search"
-          id="foodSearch"
-          name="foodSearch"
-          placeholder="Search for ingredients..."
-          onChange={formik.handleChange}
-          value={formik.values.foodSearch}
-        />
-        <Button type="button" label="Add" onClick={addIngredient} />
-      </form>
-      <div id="addedList">
-        <IngredientList ingredients={ingredients} />
+      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px]">
+        <h1 class="text-3xl mt-12">Add ingredients to recipe search</h1>
+
+        <div class="flex flex-col p-8 items-center">
+          <form class="flex flex-col items-center">
+            <input
+              type="search"
+              id="foodSearch"
+              name="foodSearch"
+              placeholder="Search for ingredients..."
+              onChange={formik.handleChange}
+              value={formik.values.foodSearch}
+            />
+            <Button
+              class="btn btn-blue mt-4"
+              type="button"
+              label="Add"
+              onClick={addIngredient}
+            />
+          </form>
+        </div>
+
+        <div id="addedList">
+          <IngredientList ingredients={ingredients} />
+        </div>
+
+        <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
+          <Button
+            class="btn btn-blue"
+            label="My Preferences"
+            onClick={() => navigate("/preferences")}
+          />
+
+          <Button
+            class="btn btn-lg btn-green justify-self-end"
+            label="Begin Search"
+            onClick={() => {
+              navigate("/results");
+            }}
+          />
+        </div>
       </div>
-
-      <Button
-        label="Change My Preferences"
-        onClick={() => navigate("/preferences")}
-      />
-
-      <Button
-        label="Begin Search"
-        onClick={() => {
-          navigate("/results");
-        }}
-      />
     </>
   );
 }

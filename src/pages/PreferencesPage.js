@@ -30,7 +30,7 @@ export default function PreferencesPage() {
   // DOM stuff
   return (
     <>
-      <div class="flex flex-col bg-slate-500 w-2/3 mt-24 items-center">
+      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px]">
         <div class="text-center">
           <h1 class="text-3xl mt-12">My Preferences</h1>
           <p class="text-xl mt-6">
@@ -48,7 +48,7 @@ export default function PreferencesPage() {
               value={formik.values.foodSearch}
             />
             <Button
-              class="btn btn-blue mt-8"
+              class="btn btn-blue mt-4"
               type="button"
               label="Add"
               onClick={addIngredient}
@@ -59,11 +59,14 @@ export default function PreferencesPage() {
         <div id="addedList">
           <IngredientList ingredients={ingredients} />
         </div>
-        <Button
-          class="btn btn-lg btn-green mb-24"
-          label="Begin Search"
-          onClick={() => navigate("/search")}
-        />
+
+        <div class="flex justify-end w-full p-4">
+          <Button
+            class="btn btn-lg btn-green"
+            label="Begin Search"
+            onClick={() => navigate("/search")}
+          />
+        </div>
       </div>
     </>
   );
