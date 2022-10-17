@@ -17,7 +17,7 @@ export default function SearchPage() {
     },
   });
 
-  const [ingredients, setIngredients] = useState(["Bread", "Rice", "Soup"]);
+  const [ingredients, setIngredients] = useState([]);
 
   // Add ingredients function.
   function addIngredient() {

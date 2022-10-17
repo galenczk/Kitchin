@@ -13,7 +13,20 @@ export default function WelcomePage() {
       <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px] h-1/2">
         <div class=" text-center">
           <h1 class="text-3xl mt-12">Welcome to kitchin</h1>
-          <h2 class="text-xl mt-6">The helpful chef app</h2>
+          <h2 class="text-xl mt-4">The helpful chef app</h2>
+          <h3 class="mt-8">
+            Click on "Begin Search" to start looking for recipes based on the
+            ingredients you have in your kitchen.
+          </h3>
+          <h3 class="mt-2">or</h3>
+          <h3 class="mt-2">
+            Click on "My Preferences" to start adding ingredients that you want
+            to avoid.
+          </h3>
+          <h3>
+            Recipes including these ingredients will not be included in your
+            results.
+          </h3>
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
