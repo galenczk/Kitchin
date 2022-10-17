@@ -10,22 +10,24 @@ import Ingredient from "../components/Ingredient";
 
 // Page function.
 export default function SearchPage() {
-  // Using Formik to handle the search form.
+  // Formik to handle the search form.
   const formik = useFormik({
     initialValues: {
       foodSearch: "",
     },
   });
 
-  const [ingredients, setIngredients] = useState(["rice", "soup"]);
+  const [ingredients, setIngredients] = useState([]);
 
   // Add ingredients function.
   function addIngredient() {
     setIngredients([...ingredients, formik.values.foodSearch]);
   }
 
-  // Navigate to handle page navigation.
+  // Page navigation.
   const navigate = useNavigate();
+
+  // DOM stuff
   return (
     <>
       <h1>Add ingredients for recipe search</h1>

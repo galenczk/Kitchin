@@ -1,10 +1,12 @@
-// Import dependencies.
-import React from "react";
+// Import dependencies
+import React, { useState } from "react";
 import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 // Import components
 import Button from "../components/Button";
+import IngredientList from "../components/IngredientList";
+import Ingredient from "../components/Ingredient";
 
 // Page function.
 export default function PreferencesPage() {
@@ -15,8 +17,17 @@ export default function PreferencesPage() {
     },
   });
 
+  const [ingredients, setIngredients] = useState([]);
+
+  // Add ingredients function.
+  function addIngredient() {
+    setIngredients([...ingredients, formik.values.foodSearch]);
+  }
+
+  // Page navigation
   const navigate = useNavigate();
 
+  // DOM stuff
   return (
     <>
       <div class="flex flex-col bg-slate-500 w-2/3 mt-24 items-center">
@@ -26,7 +37,6 @@ export default function PreferencesPage() {
             Add foods to the list below to exclude them from recipe searches.
           </p>
         </div>
-
         <div class=" flex flex-col p-8 items-center">
           <form class="flex flex-col items-center">
             <input
@@ -36,16 +46,19 @@ export default function PreferencesPage() {
               placeholder="Search for ingredients..."
               onChange={formik.handleChange}
               value={formik.values.foodSearch}
-            ></input>
+            />
             <Button
               class="btn btn-blue mt-8"
+              type="button"
               label="Add"
-              //onCLick
+              onClick={addIngredient}
             />
           </form>
         </div>
 
-        <div id="addedList">{/** Place IngredientsList.js here */}</div>
+        <div id="addedList">
+          <IngredientList ingredients={ingredients} />
+        </div>
         <Button
           class="btn btn-lg btn-green mb-24"
           label="Begin Search"
