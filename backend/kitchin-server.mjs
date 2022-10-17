@@ -16,7 +16,6 @@ app.post(
   "/add-ingredient",
   asyncHandler(async (req, res, next) => {
     const food = req.body.name;
-    console.log(food);
     const addFood = await fs.promises.appendFile("./db.json", food);
     if (addFood) {
       res.status(201).send();

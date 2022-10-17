@@ -1,6 +1,6 @@
 // Import dependencies
 import React, { useState } from "react";
-import { useFormik } from "formik";
+import { setIn, useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 // Import components
@@ -22,6 +22,7 @@ export default function SearchPage() {
   // Add ingredients function.
   function addIngredient() {
     setIngredients([...ingredients, formik.values.foodSearch]);
+    formik.resetForm();
   }
 
   // Page navigation.
@@ -34,7 +35,13 @@ export default function SearchPage() {
         <h1 class="text-3xl mt-12">Add ingredients to recipe search</h1>
 
         <div class="flex flex-col p-8 items-center">
-          <form class="flex flex-col items-center">
+          <form
+            class="flex flex-col items-center"
+            onSubmit={(event) => {
+              event.preventDefault();
+              addIngredient();
+            }}
+          >
             <input
               type="search"
               id="foodSearch"

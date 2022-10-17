@@ -20,8 +20,9 @@ export default function PreferencesPage() {
   const [ingredients, setIngredients] = useState([]);
 
   // Add ingredients function.
-  function addIngredient() {
+  function addIngredient(event) {
     setIngredients([...ingredients, formik.values.foodSearch]);
+    formik.resetForm();
   }
 
   // Page navigation
@@ -38,7 +39,13 @@ export default function PreferencesPage() {
           </p>
         </div>
         <div class=" flex flex-col p-8 items-center">
-          <form class="flex flex-col items-center">
+          <form
+            class="flex flex-col items-center"
+            onSubmit={(event) => {
+              event.preventDefault();
+              addIngredient();
+            }}
+          >
             <input
               type="search"
               id="foodSearch"

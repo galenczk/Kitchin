@@ -6,7 +6,6 @@ import Ingredient from "./Ingredient";
 
 export default function IngredientList(props) {
 
-  console.log(props.ingredients)
   return (
     <ul>
       {props.ingredients.map((item) =>{
