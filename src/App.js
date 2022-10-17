@@ -12,15 +12,13 @@ import ResultsPage from "./pages/ResultsPage";
 
 function App() {
   return (
-    <div class="flex flex-col min-h-screen justify-between">
+    <div class="flex flex-col min-h-screen">
       <Router>
         <header class="bg-gray-800 text-white text-3xl p-2">
           <h2>kitchin</h2>
         </header>
 
-        <main 
-          class="flex flex-col text-center mb-auto"
-        >
+        <main class="flex flex-col mb-auto items-center flex-grow bg-green-100">
           <Routes>
             <Route path="/" exact element={<WelcomePage />} />
             <Route path="/preferences" element={<PreferencesPage />} />
@@ -29,9 +27,7 @@ function App() {
           </Routes>
         </main>
 
-        <footer
-          class="text-center bg-gray-300 p-0.5"
-        >
+        <footer class="text-center bg-gray-300 p-0.5 ">
           <p>Galen Ciszek &copy; 2022</p>
         </footer>
       </Router>
