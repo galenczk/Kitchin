@@ -8,6 +8,8 @@ import Button from "../components/Button";
 // Page function.
 export default function WelcomePage() {
   const navigate = useNavigate();
+  
+  // DOM return
   return (
     <>
       <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px] h-1/2">

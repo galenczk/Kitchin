@@ -8,6 +8,7 @@ export default function IngredientList(props) {
 
   const ingredients = props.ingredients
 
+  //DOM return
   return (
     <ul
       class="striped"

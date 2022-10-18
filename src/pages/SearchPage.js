@@ -1,12 +1,11 @@
 // Import dependencies
 import React, { useState } from "react";
-import { setIn, useFormik } from "formik";
+import { useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
 
 // Import components
 import Button from "../components/Button";
 import IngredientList from "../components/IngredientList";
-import Ingredient from "../components/Ingredient";
 
 // Page function.
 export default function SearchPage() {
@@ -26,28 +25,39 @@ export default function SearchPage() {
   }
 
   // Delete ingredient function
-  function deleteIngredient(name){
-    setIngredients(ingredients.filter(item => item !== name))
-}
+  function deleteIngredient(name) {
+    setIngredients(ingredients.filter((item) => item !== name));
+  }
 
   // Page navigation.
   const navigate = useNavigate();
 
-  // DOM stuff
+  // DOM return
   return (
     <>
-      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px]">
+      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px] text-center">
         <h1 class="text-3xl mt-12">Add ingredients to recipe search</h1>
+
+        <h3 class="mt-4">
+          Enter an ingredient that you have in your kitchen and click "Add" to
+          add it to your search list.
+          <br /> When you are done adding ingredients, click on "Begin Search"
+          to see recipes including these ingredients.
+          <br />
+          If you make a mistake, click on the "delete" button next to the
+          ingredient to remove it from the list.
+        </h3>
 
         <div class="flex flex-col p-8 items-center">
           <form
-            class="flex flex-col items-center"
+            class="flex"
             onSubmit={(event) => {
               event.preventDefault();
               addIngredient();
             }}
           >
             <input
+              class="px-4"
               type="search"
               id="foodSearch"
               name="foodSearch"
@@ -56,7 +66,7 @@ export default function SearchPage() {
               value={formik.values.foodSearch}
             />
             <Button
-              class="btn btn-blue mt-4"
+              class="btn btn-blue ml-8 "
               type="button"
               label="Add"
               onClick={addIngredient}
@@ -64,7 +74,7 @@ export default function SearchPage() {
           </form>
         </div>
 
-        <div  id="addedList">
+        <div id="addedList">
           <IngredientList
             ingredients={ingredients}
             onDelete={deleteIngredient}
