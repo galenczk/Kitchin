@@ -1,16 +1,18 @@
-// Import dependencies.
+// Import dependencies
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import "./App.css";
 
-// Import pages.
+// Import pages
 import WelcomePage from "./pages/WelcomePage";
 import PreferencesPage from "./pages/PreferencesPage";
 import SearchPage from "./pages/SearchPage";
 import ResultsPage from "./pages/ResultsPage";
 //import RecipePage from "./pages/RecipePage"
 
+// Page function
 function App() {
+  // DOM return
   return (
     <div class="flex flex-col min-h-screen">
       <Router>
