@@ -4,14 +4,21 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 import fs from "fs";
 
-//Initialize express app
+// Init express app
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: false }))
 
-// Set PORT
 const PORT = process.env.PORT;
 
-// CREATE queries
+// Pifilling
+app.post('/pifilling', asyncHandler( async(req, res) =>{
+  res.status(201).json({Message: "message received."})
+}))
+
+
+
+
 app.post(
   "/add-ingredient",
   asyncHandler(async (req, res, next) => {

@@ -43,8 +43,16 @@ export default function WelcomePage() {
             label="Begin Search"
             onClick={() => navigate("/search")}
           />
+          
         </div>
-      </div>
+      </div><Button 
+            class="btn btn-green"
+            label="Pifilling Send"
+            onClick={() => fetch("/pifilling", {
+              method: "post",
+              body: "here is a message."
+            })}
+          />
     </>
   );
 }

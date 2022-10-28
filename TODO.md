@@ -9,13 +9,17 @@
 - [x] Search forms should add input to list and clear input field on enter 
 press.
 
-- [] Make a video demonstrating some functionality in the app.
+- [x] Make a video demonstrating some functionality in the app.
  
 
 ### To Complete
 
 - [] Writing to a JSON needs to be handled by backend code.  This may be a way to
 save ingredients that are being excluded by the user from future searches.
+
+- [] Change styles to match colors (rose, sky, emerald)
+
+- [] 
 
 
 ### Nice to Haves
