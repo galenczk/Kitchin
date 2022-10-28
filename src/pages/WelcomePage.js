@@ -43,16 +43,18 @@ export default function WelcomePage() {
             label="Begin Search"
             onClick={() => navigate("/search")}
           />
-          
         </div>
-      </div><Button 
-            class="btn btn-green"
-            label="Pifilling Send"
-            onClick={() => fetch("/api/pifilling", {
-              method: "post",
-              body: "This is a message."
-            })}
-          />
+      </div>
+      <Button
+        class="btn btn-green"
+        label="Pifilling Send"
+        onClick={() =>
+          fetch("https://pifilling.vercel.app/api", {
+            method: "post",
+            body: "This is a message"
+          })
+        }
+      />
     </>
   );
 }
