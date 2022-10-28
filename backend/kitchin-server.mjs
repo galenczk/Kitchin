@@ -12,7 +12,7 @@ app.use(express.urlencoded({ extended: false }))
 const PORT = process.env.PORT;
 
 // Pifilling
-app.post('/pifilling', asyncHandler( async(req, res) =>{
+app.post('/api/pifilling', asyncHandler( async(req, res) =>{
   res.status(201).json({Message: "message received."})
 }))
 

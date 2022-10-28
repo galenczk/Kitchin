@@ -48,9 +48,9 @@ export default function WelcomePage() {
       </div><Button 
             class="btn btn-green"
             label="Pifilling Send"
-            onClick={() => fetch("/pifilling", {
+            onClick={() => fetch("/api/pifilling", {
               method: "post",
-              body: "here is a message."
+              body: "This is a message."
             })}
           />
     </>
