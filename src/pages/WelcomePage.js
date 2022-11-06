@@ -50,8 +50,7 @@ export default function WelcomePage() {
         label="Pifilling Send"
         onClick={() =>
           fetch("https://pifilling.vercel.app/api", {
-            method: "post",
-            body: "This is a message"
+            method: "get"
           })
         }
       />
