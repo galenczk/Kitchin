@@ -11,6 +11,7 @@
     "btoa-atob": "^0.1.2",
     "chart.js": "^3.9.1",
     "formik": "^2.2.9",
+    "heroku": "^7.65.0",
     "node-fetch": "^3.2.10",
     "quickchart-js": "^3.1.0",
     "react": "^18.2.0",

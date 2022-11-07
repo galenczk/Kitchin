@@ -20,7 +20,7 @@ function App() {
           <h2>Kitchin</h2> 
         </header>
 
-        <main class="flex flex-col mb-auto items-center flex-grow bg-slate-400">
+        <main class="flex flex-col mb-auto items-center flex-grow bg-0">
           <Routes>
             <Route path="/" exact element={<WelcomePage />} />
             <Route path="/preferences" element={<PreferencesPage />} />

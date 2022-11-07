@@ -9,6 +9,9 @@ module.exports = {
         salmon: "#f9af8b",
         cyberYellow: "#fbd00e",
       },
+      backgroundImage: {
+        "0": "url('/images/0.avif')"
+      }
     },
   },
   plugins: [],

@@ -1,7 +1,7 @@
 // Import dependencies.
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios"
+import axios from "axios";
 
 // Import components.
 import Button from "../components/Button";
@@ -22,11 +22,11 @@ export default function WelcomePage() {
       fillIngredients: "true",
       addRecipeInformation: "true",
       number: "2",
-      limitLicense: "false"
+      limitLicense: "false",
     },
     headers: {
-      "X-RapidAPI-Key": "c3b45144d2mshe0fec3e877b8518p1c5da8jsnb5a66dc57015",
-      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+      "X-RapidAPI-Key": process.env.X_RAPIDAPI_KEY,
+      "X-RapidAPI-Host": process.env.X_RAPIDAPI_HOST,
     },
   };
 
@@ -38,39 +38,24 @@ export default function WelcomePage() {
           <h1 class="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 class="text-xl mt-4">The helpful chef app</h2>
           <h3 class="mt-8">
-            Click on "Begin Search" to start looking for recipes based on the
-            ingredients you have in your kitchen.
+            Click on "Begin Search" to start looking for recipes based on the ingredients you have in your kitchen.
           </h3>
           <h3 class="mt-2">or</h3>
-          <h3 class="mt-2">
-            Click on "My Preferences" to start adding ingredients that you want
-            to avoid.
-          </h3>
-          <h3>
-            Recipes including these ingredients will not be included in your
-            results.
-          </h3>
+          <h3 class="mt-2">Click on "My Preferences" to start adding ingredients that you want to avoid.</h3>
+          <h3>Recipes including these ingredients will not be included in your results.</h3>
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <Button
-            class="btn btn-blue"
-            label="My Preferences"
-            onClick={() => navigate("/preferences")}
-          />
+          <Button class="btn btn-blue" label="My Preferences" onClick={() => navigate("/preferences")} />
+
+          <Button class="btn btn-lg btn-green" label="Begin Search" onClick={() => navigate("/search")} />
 
           <Button
-            class="btn btn-lg btn-green"
-            label="Begin Search"
-            onClick={() => navigate("/search")}
-          />
-
-          <Button 
             label="API call"
             onClick={() => {
               axios.request(options).then(function (response) {
-                console.log(response.data)
-              })
+                console.log(response.data);
+              });
             }}
           />
         </div>
