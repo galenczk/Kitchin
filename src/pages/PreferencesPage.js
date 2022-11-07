@@ -36,20 +36,17 @@ export default function PreferencesPage() {
   // DOM return 
   return (
     <>
-      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px]">
+      <div class="flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px]">
         <div class="text-center">
           <h1 class="text-3xl mt-12">My Preferences</h1>
           <h3 class="mt-6">
-            Enter an ingredient that you would like to avoid and click "Add" to
-            add it to your exclusion list. <br /> Recipes using these
-            ingredients will not be included in your search results.
-            <br/>
-            Don't worry!  If you make a mistake, click the "delete" button next to an ingredient to remove it from the list.
+            Enter an ingredient that you would like to avoid and click "Add" to add it to your exclusion list. <br />{" "}
+            Recipes using these ingredients will not be included in your search results.
+            <br />
+            Don't worry! If you make a mistake, click the "delete" button next to an ingredient to remove it from the
+            list.
           </h3>
-          <h3 class="mt-4">
-            When you are done adding ingredients to exclude, click on "Search
-            Page" to continue.
-          </h3>
+          <h3 class="mt-4">When you are done adding ingredients to exclude, click on "Search Page" to continue.</h3>
         </div>
         <div class=" flex flex-col p-8 items-center">
           <form
@@ -68,28 +65,16 @@ export default function PreferencesPage() {
               onChange={formik.handleChange}
               value={formik.values.foodSearch}
             />
-            <Button
-              class="btn btn-blue ml-8"
-              type="button"
-              label="Add"
-              onClick={addIngredient}
-            />
+            <Button class="btn btn-blue ml-8" type="button" label="Add" onClick={addIngredient} />
           </form>
         </div>
 
         <div id="addedList">
-          <IngredientList
-            ingredients={ingredients}
-            onDelete={deleteIngredient}
-          />
+          <IngredientList ingredients={ingredients} onDelete={deleteIngredient} />
         </div>
 
         <div class="flex justify-end w-full p-4 mt-auto ">
-          <Button
-            class="btn btn-lg btn-green"
-            label="Search Page"
-            onClick={() => navigate("/search")}
-          />
+          <Button class="btn btn-lg btn-green" label="Search Page" onClick={() => navigate("/search")} />
         </div>
       </div>
     </>

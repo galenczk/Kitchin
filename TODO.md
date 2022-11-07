@@ -14,21 +14,19 @@ press.
 
 ### To Complete
 
-- [] Writing to a JSON needs to be handled by backend code.  This may be a way to
-save ingredients that are being excluded by the user from future searches.
+- Integrate a recipe API.
 
-- [] Change styles to match colors (rose, sky, emerald)
+- Save user preferences to a Mongo document and have these load into preferences page.
 
-- [] 
+- Change styles to match colors (rose, sky, emerald)
+
+- Kitchin on header should be a home button
 
 
 ### Nice to Haves
-- [] When searching for ingredients in searchBox, have results filtering in 
-pop-down box.  It would be good if these results came from a local object and 
-didn't query the API.
+- When searching for ingredients in searchBox, have results filtering in 
+pop-down box.  These should come from a local object and not the API.
 
-- [] Page shouldn't be limited to 100vh, it should grow in length depending on 
-content.
 
 
 

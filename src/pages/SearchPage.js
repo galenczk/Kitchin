@@ -35,17 +35,15 @@ export default function SearchPage() {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px] text-center">
+      <div class="flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] text-center">
         <h1 class="text-3xl mt-12">Add ingredients to recipe search</h1>
 
         <h3 class="mt-4">
-          Enter an ingredient that you have in your kitchen and click "Add" to
-          add it to your search list.
-          <br /> When you are done adding ingredients, click on "Begin Search"
-          to see recipes including these ingredients.
+          Enter an ingredient that you have in your kitchen and click "Add" to add it to your search list.
+          <br /> When you are done adding ingredients, click on "Begin Search" to see recipes including these
+          ingredients.
           <br />
-          If you make a mistake, click on the "delete" button next to the
-          ingredient to remove it from the list.
+          If you make a mistake, click on the "delete" button next to the ingredient to remove it from the list.
         </h3>
 
         <div class="flex flex-col p-8 items-center">
@@ -65,28 +63,16 @@ export default function SearchPage() {
               onChange={formik.handleChange}
               value={formik.values.foodSearch}
             />
-            <Button
-              class="btn btn-blue ml-8 "
-              type="button"
-              label="Add"
-              onClick={addIngredient}
-            />
+            <Button class="btn btn-blue ml-8 " type="button" label="Add" onClick={addIngredient} />
           </form>
         </div>
 
         <div id="addedList">
-          <IngredientList
-            ingredients={ingredients}
-            onDelete={deleteIngredient}
-          />
+          <IngredientList ingredients={ingredients} onDelete={deleteIngredient} />
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <Button
-            class="btn btn-blue"
-            label="My Preferences"
-            onClick={() => navigate("/preferences")}
-          />
+          <Button class="btn btn-blue" label="My Preferences" onClick={() => navigate("/preferences")} />
 
           <Button
             class="btn btn-lg btn-green justify-self-end"

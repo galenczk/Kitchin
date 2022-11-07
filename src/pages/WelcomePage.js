@@ -1,6 +1,7 @@
 // Import dependencies.
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"
 
 // Import components.
 import Button from "../components/Button";
@@ -8,11 +9,31 @@ import Button from "../components/Button";
 // Page function.
 export default function WelcomePage() {
   const navigate = useNavigate();
-  
+
+  const options = {
+    method: "GET",
+    url: "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch",
+    params: {
+      query: "pasta",
+      cuisine: "italian",
+      diet: "vegetarian",
+      type: "main course",
+      instructionsRequired: "true",
+      fillIngredients: "true",
+      addRecipeInformation: "true",
+      number: "2",
+      limitLicense: "false"
+    },
+    headers: {
+      "X-RapidAPI-Key": "c3b45144d2mshe0fec3e877b8518p1c5da8jsnb5a66dc57015",
+      "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
+    },
+  };
+
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-slate-500 w-3/4 mt-24 items-center min-h-[400px] h-1/2">
+      <div class="flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] h-1/2">
         <div class=" text-center">
           <h1 class="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 class="text-xl mt-4">The helpful chef app</h2>
@@ -43,17 +64,17 @@ export default function WelcomePage() {
             label="Begin Search"
             onClick={() => navigate("/search")}
           />
+
+          <Button 
+            label="API call"
+            onClick={() => {
+              axios.request(options).then(function (response) {
+                console.log(response.data)
+              })
+            }}
+          />
         </div>
       </div>
-      <Button
-        class="btn btn-green"
-        label="Pifilling Send"
-        onClick={() =>
-          fetch("https://pifilling.vercel.app/api", {
-            method: "get"
-          })
-        }
-      />
     </>
   );
 }
