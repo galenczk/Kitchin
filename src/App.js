@@ -34,7 +34,6 @@ function App() {
       let number = await response.data
       number = await number % 10
       setImageNumber(await number)
-      console.log(imageNumber)
      }
      callRNG()
    }, []);
