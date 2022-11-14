@@ -45,7 +45,6 @@ function App() {
           <h2>Kitchin</h2>
         </header>
 
-        {imageNumber && (
           <main className={`bg-${imageNumber} flex flex-col mb-auto items-center flex-grow`} class={`flex flex-col mb-auto items-center flex-grow`}>
             <Routes>
               <Route path="/" exact element={<WelcomePage />} />
@@ -54,7 +53,7 @@ function App() {
               <Route path="/results" element={<ResultsPage />} />
             </Routes>
           </main>
-        )}
+        
 
         <footer class="text-center bg-gray-300 p-0.5 ">
           <p>Galen Ciszek &copy; 2022</p>
