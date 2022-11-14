@@ -33,7 +33,7 @@ export default function WelcomePage() {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] h-1/2">
+      <div class={`flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] h-1/2 `}>
         <div class=" text-center">
           <h1 class="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 class="text-xl mt-4">The helpful chef app</h2>
