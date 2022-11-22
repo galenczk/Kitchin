@@ -4,17 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-import image0 from "./images/0.avif";
-import image1 from "./images/1.avif";
-import image2 from "./images/2.avif";
-import image3 from "./images/3.avif";
-import image4 from "./images/4.avif";
-import image5 from "./images/5.avif";
-import image6 from "./images/6.avif";
-import image7 from "./images/7.avif";
-import image8 from "./images/8.avif";
-import image9 from "./images/9.avif";
-
 // Import pages
 import WelcomePage from "./pages/WelcomePage";
 import PreferencesPage from "./pages/PreferencesPage";
@@ -32,6 +21,7 @@ function App() {
       let number = (await response).data
       number = number % 10
       setImageNumber(await number)
+      console.log(await number)
     }
     callRNG()
   }, []);
@@ -45,7 +35,7 @@ function App() {
           <h2>Kitchin</h2>
         </header>
 
-          <main className={`bg-${imageNumber} flex flex-col mb-auto items-center flex-grow`} class={`flex flex-col mb-auto items-center flex-grow`}>
+          <main className={`bg-${imageNumber} flex flex-col mb-auto items-center flex-grow`}>
             <Routes>
               <Route path="/" exact element={<WelcomePage />} />
               <Route path="/preferences" element={<PreferencesPage />} />
