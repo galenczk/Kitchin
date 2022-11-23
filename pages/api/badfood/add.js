@@ -12,7 +12,7 @@ export default async function addBadFood(req, res){
   console.log("CONNECTING TO MONGO")
   await connectDB()
   console.log("CONNECTED TO MONGO")
-  const badFood = await BadFood.create({ name: name })
+  await BadFood.create({ name: name })
   console.log("INGREDIENT ADDED");
   res.status(201).send(`Successfully added ingredient ${name}`)
 }

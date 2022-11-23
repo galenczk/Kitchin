@@ -1,14 +1,13 @@
 // Import dependencies
 import { Formik, Field, Form } from "formik";
-import axios from "axios"
 import {useEffect, useState} from "react"
 
 // Import components
 import IngredientList from "./components/IngredientList";
-import Ingredient from "./components/Ingredient";
 
 // Page function.
 export default function PreferencesPage() {
+
   const [badFoods, setBadFoods] = useState([]);
   
 
@@ -18,26 +17,26 @@ export default function PreferencesPage() {
       method: "POST",
       body: values.name
     })
-    if(response === 200){
-      setBadFoods(values.name)
-      console.log(response)
-    }
-
-    
+    .then(loadBadFoods())
   }
 
   // Delete ingredient function
-  function deleteIngredient(name) {
+  async function deleteIngredient(name) {
+    const response = await fetch("http://localhost:3000/api/badfood/delete", {
+      method: "POST",
+      body: name
+    })
+    .then(loadBadFoods())
   }
 
   async function loadBadFoods(){
-    const badFoods = []
+    const getBadFoods = []
     const response = await fetch("http://localhost:3000/api/badfood/get")
     const data = await response.json()
     for (var item of data){
-      badFoods.push(item.name)
+      getBadFoods.push(item.name);
     }
-    setBadFoods(badFoods)
+    setBadFoods(getBadFoods);
   }
 
   useEffect(()=>{
