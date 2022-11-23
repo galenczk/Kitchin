@@ -1,8 +1,6 @@
 // Import dependencies
-import React from "@testing-library/react"
 
 // Import componenets
-import Button from "./Button";
 
 export default function Ingredient(props) {
   return (
@@ -16,11 +14,11 @@ export default function Ingredient(props) {
         <div 
           class="w-36"
         />
-        <Button 
+        <button 
           class="btn btn-delete"
           label="delete"
           onClick={() => {props.onDelete(props.item)}}
-          />
+          >Delete</button>
       </div>
     </li>
   );

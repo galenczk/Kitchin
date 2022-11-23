@@ -1,8 +1,6 @@
 // Import dependencies
-import React from "@testing-library/react";
 
 // Import componenets
-import Button from "./Button";
 
 export default function Recipe(props) {
   return (

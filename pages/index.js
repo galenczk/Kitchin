@@ -1,17 +1,16 @@
 // Import dependencies
-
+import {useRouter} from "next/router"
 import axios from "axios";
 
-// Import components.
-import Button from "./components/Button";
 
 // Page function.
-export default function Home({ number }) {
+export default function Home() {
 
+  const router = useRouter()
   // DOM return
   return (
     <>
-      <div className={`flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] h-1/2 `}>
+      <div className={`flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] h-1/2 border-black border-4`}>
         <div className=" text-center">
           <h1 className="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 className="text-xl mt-4">The helpful chef app</h2>
@@ -24,18 +23,13 @@ export default function Home({ number }) {
         </div>
 
         <div className="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <Button className="btn btn-blue" label="My Preferences" onClick={() => navigate("/preferences")} />
+          <button className="btn btn-blue" onClick={() => router.push("/preferences", undefined, { shallow: true })}>
+            My Preferences
+          </button>
 
-          <Button className="btn btn-lg btn-green" label="Begin Search" onClick={() => navigate("/search")} />
-
-          <Button
-            label="API call"
-            onClick={() => {
-              axios.request(options).then(function (response) {
-                console.log(response.data);
-              });
-            }}
-          />
+          <button className="btn btn-lg btn-green" onClick={() => navigate("/search")}>
+            Begin Search
+          </button>
         </div>
       </div>
     </>

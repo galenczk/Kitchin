@@ -1,5 +1,4 @@
 // Import dependencies
-import React from "react";
 
 //Import components
 import Recipe from "./Recipe";

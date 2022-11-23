@@ -37,9 +37,9 @@
     @apply font-bold py-2 px-4 ;
   }
 
-  .btn-row {
-    @apply  px-4 ;
-  }
+.btn-row {
+  @apply  px-4 ;
+}
 
 .btn-green {
     @apply bg-emerald-700 text-white;
