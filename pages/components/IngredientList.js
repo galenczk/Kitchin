@@ -5,15 +5,15 @@ import Ingredient from "./Ingredient";
 
 export default function IngredientList(props) {
 
-  const ingredients = props.ingredients
+  const ingredients = props.ingredients 
 
   //DOM return
   return (
     <ul
       class="striped"
     >
-      {ingredients.map((item) => {
-        return <Ingredient item={item} onDelete={props.onDelete} />;
+      {ingredients.map((item, key) => {
+        return <Ingredient item={item} key={key} onDelete={props.onDelete} />;
       })}
     </ul>
   );
