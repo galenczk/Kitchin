@@ -1,6 +1,5 @@
 // Import dependencies
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 // Import components
 import RecipeList from "../components/RecipeList";

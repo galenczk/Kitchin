@@ -1,5 +1,6 @@
 // Import dependencies
 import { Formik, Field, Form } from "formik";
+import { useRouter } from "next/router";
 import {useEffect, useState} from "react"
 
 // Import components
@@ -8,7 +9,8 @@ import IngredientList from "./components/IngredientList";
 // Page function.
 export default function PreferencesPage() {
 
-  const [badFoods, setBadFoods] = useState([]);
+  const router = useRouter()
+  const [badFood, setBadFood] = useState([]);
   
 
   // Add ingredients function.
@@ -17,7 +19,7 @@ export default function PreferencesPage() {
       method: "POST",
       body: values.name
     })
-    .then(loadBadFoods())
+    .then(loadBadFood())
   }
 
   // Delete ingredient function
@@ -26,21 +28,21 @@ export default function PreferencesPage() {
       method: "POST",
       body: name
     })
-    .then(loadBadFoods())
+    .then(loadBadFood())
   }
 
-  async function loadBadFoods(){
-    const getBadFoods = []
+  async function loadBadFood(){
+    const getBadFood = []
     const response = await fetch("http://localhost:3000/api/badfood/get")
     const data = await response.json()
     for (var item of data){
-      getBadFoods.push(item.name);
+      getBadFood.push(item.name);
     }
-    setBadFoods(getBadFoods);
+    setBadFood(getBadFood);
   }
 
   useEffect(()=>{
-    loadBadFoods()
+    loadBadFood()
   }, [])
 
   // DOM return 
@@ -78,11 +80,11 @@ export default function PreferencesPage() {
         </div>
 
         <div id="addedList">
-          <IngredientList ingredients={badFoods} onDelete={deleteIngredient} />
+          <IngredientList ingredients={badFood} onDelete={deleteIngredient} />
         </div>
 
         <div class="flex justify-end w-full p-4 mt-auto ">
-          <button class="btn btn-lg btn-green" label="Search Page" onClick={() => navigate("/search")} >Search Page</button>
+          <button class="btn btn-lg btn-green" label="Search Page" onClick={() => router.push("/search")} >Search Page</button>
         </div>
       </div>
     </>

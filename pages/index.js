@@ -23,11 +23,11 @@ export default function Home() {
         </div>
 
         <div className="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <button className="btn btn-blue" onClick={() => router.push("/preferences", undefined, { shallow: true })}>
+          <button className="btn btn-blue" onClick={() => router.push("/preferences")}>
             My Preferences
           </button>
 
-          <button className="btn btn-lg btn-green" onClick={() => navigate("/search")}>
+          <button className="btn btn-lg btn-green" onClick={() => router.push("/search")}>
             Begin Search
           </button>
         </div>
