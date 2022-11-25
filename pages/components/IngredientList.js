@@ -4,17 +4,25 @@
 import Ingredient from "./Ingredient";
 
 export default function IngredientList(props) {
-
-  const ingredients = props.ingredients 
+  const ingredients = props.ingredients;
 
   //DOM return
   return (
-    <ul
-      class="striped"
-    >
-      {ingredients.map((item, key) => {
-        return <Ingredient item={item} key={key} onDelete={props.onDelete} />;
-      })}
-    </ul>
+    <>
+      <table className="min-w-full">
+        <thead>
+          <tr className="bg-slate-600 text-white">
+            <th className="">Ingredient</th>
+            
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {ingredients.map((item, key) => {
+            return <Ingredient item={item} key={key} onDelete={props.onDelete} />;
+          })}
+        </tbody>
+      </table>
+    </>
   );
 }

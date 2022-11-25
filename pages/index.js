@@ -17,17 +17,9 @@ export default function Home() {
           <h3 className="mt-8">
             Click on "Begin Search" to start looking for recipes based on the ingredients you have in your kitchen.
           </h3>
-          <h3 className="mt-2">or</h3>
-          <h3 className="mt-2">Click on "My Preferences" to start adding ingredients that you want to avoid.</h3>
-          <h3>Recipes including these ingredients will not be included in your results.</h3>
-        </div>
-
-        <div className="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <button className="btn btn-blue" onClick={() => router.push("/preferences")}>
-            My Preferences
-          </button>
-
-          <button className="btn btn-lg btn-green" onClick={() => router.push("/search")}>
+          
+          <div className="h-16"/>
+          <button className="btn btn-lg btn-green" onClick={() => router.push("/fridge")}>
             Begin Search
           </button>
         </div>

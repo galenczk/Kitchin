@@ -1,5 +1,5 @@
 import connectDB from "../../../db/connectDB";
-import BadFood from "../../../db/model";
+import FridgeFood from "../../../db/fridgeModel";
 
 /**
  *
@@ -8,6 +8,6 @@ import BadFood from "../../../db/model";
  */
 export default async function getBadFood(req, res) {
   await connectDB();
-  const badFoods = await BadFood.find()
-  res.status(200).json(badFoods)
+  const food = await FridgeFood.find();
+  res.status(200).json(food)
 }

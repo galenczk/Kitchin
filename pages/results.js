@@ -2,19 +2,11 @@
 import React, { useState } from "react";
 
 // Import components
-import RecipeList from "../components/RecipeList";
-import Button from "../components/Button";
+import RecipeList from "./components/RecipeList";
 
-export default function ResultsPage() {
-  const navigate = useNavigate();
+export default function ResultsPage({ recipes }) {
 
-  const [recipes, setRecipes] = useState([
-    "Chicken Rissotto",
-    "BBQ Chicken with Rice",
-    "Chicken Fried Rice",
-    "Chicken and Wild Rice Soup",
-  ]);
-
+  
   // DOM return
   return (
     <>
@@ -25,8 +17,7 @@ export default function ResultsPage() {
         </div>
 
         <div class="flex justify-between w-full items-center place-self-start p-4 mt-auto">
-          <Button class="btn btn-blue" label="My Preferences" onClick={() => navigate("/preferences")} />
-          <Button class="btn btn-blue" label="Search Again" onClick={() => navigate("/search")} />
+          <button class="btn btn-blue" label="Search Again" onClick={() => navigate("/search")}>Search Again</button>
         </div>
       </div>
     </>

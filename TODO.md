@@ -5,4 +5,6 @@
 - Formik should reset add form for /preferences.  Also disable "enter" if possible.
 - Same for /search
 
+- Make ingredients proper case when displayed in the table.
 
+- 
