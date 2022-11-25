@@ -7,11 +7,13 @@ import clientPromise from "../../../lib/mongodb";
  */
 export default async function saveResults(req, res) {
   const name = req.body;
+  console.log(name)
   try {
     const client = await clientPromise;
     const db = client.db("test");
 
-    await db.collection("fridgefoods").deleteOne({ name: name });
+    const response = await db.collection("fridgefood").deleteOne(name);
+    console.log(response)
 
     res.send(`Successfully deleted ingredient ${name} `);
   } catch (error) {

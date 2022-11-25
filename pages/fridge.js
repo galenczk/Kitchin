@@ -24,7 +24,7 @@ export default function PreferencesPage({ searchRecipes, recipes }) {
 
   // Delete ingredient 
   async function deleteFridgeFood(name) {
-    const response = await axios.post("http://localhost:3000/api/fridgefood/delete", name);
+    const response = await axios.post("http://localhost:3000/api/fridgefood/delete", { name: name });
     if(response.status === 200){
       getFridgeFood();
     };
@@ -38,7 +38,7 @@ export default function PreferencesPage({ searchRecipes, recipes }) {
     for (var item of data) {
       foodArray.push(item.name);
     }
-    console.log(foodArray)
+    setFridgeFood(foodArray)
 }
 
   // Builds string of ingredients for use in API call
