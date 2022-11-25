@@ -8,7 +8,7 @@ import axios from "axios";
 import IngredientList from "./components/IngredientList";
 
 // Page function.
-export default function PreferencesPage({ searchRecipes, recipes }) {
+export default function PreferencesPage() {
 
   const router = useRouter()
   const [fridgeFood, setFridgeFood] = useState([]);
@@ -95,14 +95,14 @@ export default function PreferencesPage({ searchRecipes, recipes }) {
         <div className="flex min-w-full justify-center">
           {fridgeFood.length > 0 ?
           <IngredientList ingredients={fridgeFood} onDelete={deleteFridgeFood} />
-          : <p className="bg-slate-300 p-2">You don't have any ingredients listed currently.  Add a few to start!</p>
+          : <p className="bg-slate-300 p-2 text-center">You don't have any ingredients listed currently.  Add a few and start a search!</p>
           }
         </div>
 
         <div class="flex justify-end w-full p-4 mt-auto ">
           <button class="btn btn-lg btn-green" label="Search Page" onClick={async () => {
             await search();
-            //router.push("/results")
+            router.push("/results")
             }} >Search For Recipes</button>
         </div>
 

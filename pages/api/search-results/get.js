@@ -10,9 +10,9 @@ export default async function saveResults(req, res) {
     const client = await clientPromise;
     const db = client.db("test");
 
-    const results = await db.collection("searchresults").find();
+    const recipes = await db.collection("searchresults").find().toArray();
 
-    res.json(results);
+    res.json(recipes);
   } catch (error) {
     console.log(error);
   }
