@@ -44,6 +44,12 @@
 .btn-green {
     @apply bg-emerald-700 text-white;
   }
+.btn-chef {
+    @apply text-emerald-700;
+  }
+.btn-book {
+    @apply text-sky-700;
+  }
 .btn-blue {
     @apply bg-sky-700 text-white;
   }
@@ -58,11 +64,17 @@
     @apply bg-emerald-900;
 }
 .btn-red:hover {
-    @apply bg-rose-900;
+  @apply bg-rose-900;
 }
 .btn-blue:hover {
-    @apply bg-sky-900;
+  @apply bg-sky-900;
 }
 .btn-gray:hover {
-    @apply bg-slate-900;
+  @apply bg-slate-900;
 }
+.btn-chef:hover {
+    @apply bg-emerald-900 text-white rounded-lg;
+  }
+.btn-book:hover {
+    @apply bg-sky-900 text-white rounded-lg;
+  }
