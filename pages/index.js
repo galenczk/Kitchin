@@ -13,7 +13,7 @@ export default function Home() {
           <h1 className="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 className="text-xl mt-4">The helpful chef app</h2>
           <h3 className="mt-8">
-            Click on "Begin Search" to start looking for recipes based on the ingredients you have in your kitchen.
+            Click on "Get Started" to start looking for recipes based on the ingredients you have in your kitchen.
           </h3>
 
           <div className="h-16" />

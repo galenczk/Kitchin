@@ -4,7 +4,7 @@ import { useRouter } from "next/router"
 import axios from "axios"
 
 
-export default function ResultsPage(props) {
+export default function DetailsPage(props) {
 
   console.log(props.data)
 
@@ -59,9 +59,9 @@ export default function ResultsPage(props) {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white my-12 items-center text-center border-4 border-slate-600">
+      <div class="flex flex-col bg-white my-12 text-center border-4 border-slate-600">
         <div className="flex">
-          <div className="my-auto mx-24">
+          <div className="my-auto mx-12">
             <h1 class="text-3xl font-bold">{thisRecipe.title}</h1>
             <p className="mt-8">
               by:{" "}
@@ -70,10 +70,10 @@ export default function ResultsPage(props) {
               </a>
             </p>
           </div>
-          <img className="mx-12 my-6" src={thisRecipe.image}></img>
+          <img className="mx-12 my-12 w-1/2" src={thisRecipe.image}></img>
         </div>
 
-        <div className="max-w-xl">
+        <div className="w-1/3 mx-auto">
           <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2">Ingredients</h1>
           <ul className="mt-6 text-start pl-6" style={{ listStyleType: "disc" }}>
             {inputs.map((input) => (
@@ -84,7 +84,7 @@ export default function ResultsPage(props) {
           </ul>
         </div>
 
-        <div className="max-w-xl">
+        <div className="w-3/4 mx-auto">
           <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2 mt-2">Steps</h1>
           <ol className="my-6 text-start pl-6" style={{ listStyleType: "decimal" }}>
             {steps.map((step) => (
@@ -105,7 +105,7 @@ export default function ResultsPage(props) {
 
 export async function getServerSideProps() {
   // Get list of recipes from mongo through API.  
-  const response = await axios.get("http://localhost:3000/api/search-results/get");
+  const response = await axios.get("http://localhost:3000/api/results-get");
   const recipes = await response.data[0].recipes;
 
   return { props: {recipeList: recipes}}

@@ -3,34 +3,34 @@
 @tailwind utilities;
 
 .bg-0{
-  background-image: url("../public/images/0.avif");
+  background-image: url("../public/bg-images/0.avif");
 }
 .bg-1{
-  background-image: url("../public/images/1.avif");
+  background-image: url("../public/bg-images/1.avif");
 }
 .bg-2{
-  background-image: url("../public/images/2.avif");
+  background-image: url("../public/bg-images/2.avif");
 }
 .bg-3{
-  background-image: url("../public/images/3.avif");
+  background-image: url("../public/bg-images/3.avif");
 }
 .bg-4{
-  background-image: url("../public/images/4.avif");
+  background-image: url("../public/bg-images/4.avif");
 }
 .bg-5{
-  background-image: url("../public/images/5.avif");
+  background-image: url("../public/bg-images/5.avif");
 }
 .bg-6{
-  background-image: url("../public/images/6.avif");
+  background-image: url("../public/bg-images/6.avif");
 }
 .bg-7{
-  background-image: url("../public/images/7.avif");
+  background-image: url("../public/bg-images/7.avif");
 }
 .bg-8{
-  background-image: url("../public/images/8.avif");
+  background-image: url("../public/bg-images/8.avif");
 }
 .bg-9{
-  background-image: url("../public/images/9.avif");
+  background-image: url("../public/bg-images/9.avif");
 }
 
 .btn {

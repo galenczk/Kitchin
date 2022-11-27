@@ -1,4 +1,4 @@
-import clientPromise from "../../../lib/mongodb";
+import clientPromise from "../../lib/mongodb";
 
 /**
  *
@@ -6,13 +6,13 @@ import clientPromise from "../../../lib/mongodb";
  * @param {import("next").NextApiResponse} res
  */
 export default async function saveResults(req, res) {
+  const name = req.body;
   try {
     const client = await clientPromise;
     const db = client.db("test");
 
-    await db.collection("searchresults").deleteMany({});
-
-    res.send("Successfully deleted all search results.");
+    const fridgeFood = await db.collection("fridgefood").find().toArray();
+    res.json(fridgeFood);
   } catch (error) {
     console.log(error);
   }

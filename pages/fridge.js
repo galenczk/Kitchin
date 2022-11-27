@@ -8,7 +8,7 @@ import axios from "axios";
 import IngredientList from "./components/IngredientList";
 
 // Page function.
-export default function PreferencesPage(props) {
+export default function FridgePage(props) {
   // Router for page navigation
   const router = useRouter();
   // fridgeFood is the list of ingredients
@@ -19,7 +19,7 @@ export default function PreferencesPage(props) {
   // Add ingredient
   async function addFridgeFood(values) {
     if (values.name) {
-      const response = await axios.post("http://localhost:3000/api/fridgefood/add", { name: values.name });
+      const response = await axios.post("http://localhost:3000/api/food-add", { name: values.name });
       if (response.status === 201) {
         getFridgeFood();
       } else {
@@ -30,7 +30,7 @@ export default function PreferencesPage(props) {
 
   // Delete ingredient
   async function deleteFridgeFood(name) {
-    const response = await axios.post("http://localhost:3000/api/fridgefood/delete", { name: name });
+    const response = await axios.post("http://localhost:3000/api/food-delete", { name: name });
     if (response.status === 200) {
       getFridgeFood();
     }
@@ -39,7 +39,7 @@ export default function PreferencesPage(props) {
   // Get ingredients
   async function getFridgeFood() {
     const foodArray = [];
-    const response = await axios.get("http://localhost:3000/api/fridgefood/get");
+    const response = await axios.get("http://localhost:3000/api/food-get");
     const data = await response.data;
     for (var item of data) {
       foodArray.push(item.name);
@@ -66,7 +66,7 @@ export default function PreferencesPage(props) {
     setLoading(true)
     const response = await axios.post("http://localhost:3000/api/recipe-search", { string: buildFoodString() });
     const recipes = response.data;
-    const saveResults = await axios.post("http://localhost:3000/api/search-results/add", recipes);
+    const saveResults = await axios.post("http://localhost:3000/api/results-add", recipes);
     router.push("/results")
   }
 
@@ -152,7 +152,7 @@ export default function PreferencesPage(props) {
 // Get list of ingredients with GSSP; faster re-load if ingredients doesn't change.
 export async function getServerSideProps() {
   const ingredientArray = [];
-  const response = await axios.get("http://localhost:3000/api/fridgefood/get");
+  const response = await axios.get("http://localhost:3000/api/food-get");
   const ingredients = await response.data;
   for (let item of ingredients) {
     ingredientArray.push(item.name);
