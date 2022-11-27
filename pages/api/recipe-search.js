@@ -37,7 +37,6 @@ async function callAPI(foodString, rng) {
     "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/complexSearch",
     options
   );
-  console.log(response.data);
   const results = response.data.results;
   return results;
 }

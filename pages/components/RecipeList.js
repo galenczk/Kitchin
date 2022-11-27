@@ -13,16 +13,16 @@ export default function RecipeList(props) {
   // DOM return
   return (
     <>
-      <table class="table-auto border-4">
+      <table class="min-w-full">
         <thead>
-          <tr className="border-4">
-            <th className="border-2">Recipe</th>
-            <th className="border-2">Ready In</th>
-            <th className="p-2 border-2">
-              Missed <br /> Ingredients
+          <tr className="bg-slate-600 text-white">
+            <th className="p-4 border-x-slate-800 border-x-2 border-l-slate-600 text-start">Recipe</th>
+            <th className="p-4 border-x-slate-800 border-x-2">Ready In</th>
+            <th className="p-4 border-x-slate-800 border-x-2">
+              Missing <br /> Ingredients
             </th>
-            <th>Servings</th>
-            <th className="p-2 border-2">Let's Have That!</th>
+            <th className="p-4 border-x-slate-800 border-x-2 border-r-slate-600">Servings</th>
+            <th className="p-4 border-x-slate-800 border-x-2 border-r-slate-600"></th>
           </tr>
         </thead>
         <tbody>

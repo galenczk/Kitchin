@@ -3,9 +3,11 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router"
 import axios from "axios"
 
-// Import components
 
 export default function ResultsPage(props) {
+
+  console.log(props.data)
+
   const router = useRouter();
   const recipeID = router.query.details;
 
@@ -53,39 +55,48 @@ export default function ResultsPage(props) {
       }
 
   parseSteps()
-  console.log(steps)
 
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white w-3/4 mt-24 items-center min-h-[400px] text-center">
-        <img src={thisRecipe.image}></img>
-        <h1 class="text-3xl">{thisRecipe.title}</h1>
-        <p>
-          by:{" "}
-          <a href={thisRecipe.sourceUrl} className="text-sky-600">
-            {thisRecipe.sourceName}
-          </a>
-        </p>
+      <div class="flex flex-col bg-white my-12 items-center text-center border-4 border-slate-600">
+        <div className="flex">
+          <div className="my-auto mx-24">
+            <h1 class="text-3xl font-bold">{thisRecipe.title}</h1>
+            <p className="mt-8">
+              by:{" "}
+              <a href={thisRecipe.sourceUrl} className="text-sky-600">
+                {thisRecipe.sourceName}
+              </a>
+            </p>
+          </div>
+          <img className="mx-12 my-6" src={thisRecipe.image}></img>
+        </div>
 
-        <div>
-          <h1>Ingredients</h1>
-          <ul>
+        <div className="max-w-xl">
+          <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2">Ingredients</h1>
+          <ul className="mt-6 text-start pl-6" style={{ listStyleType: "disc" }}>
             {inputs.map((input) => (
-              <li>
+              <li className="m-1">
                 {input.amount} {input.unit} {input.originalName}
               </li>
             ))}
           </ul>
         </div>
 
-        <div>
-          <h1>Steps</h1>
-          <ol style={{ listStyleType: "decimal" }}>
+        <div className="max-w-xl">
+          <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2 mt-2">Steps</h1>
+          <ol className="my-6 text-start pl-6" style={{ listStyleType: "decimal" }}>
             {steps.map((step) => (
-              <li>{step}</li>
+              <li className="m-2">{step}</li>
             ))}
           </ol>
+        </div>
+
+        <div className="flex justify-between mx-auto">
+          <button className="btn-small btn-blue m-6 border-r-4 border-b-4 border-sky-600">Back to Results</button>
+          <div className="w-24" />
+          <button className="btn-small btn-blue m-6 border-l-4 border-b-4 border-sky-600">Back to Search</button>
         </div>
       </div>
     </>
@@ -93,8 +104,7 @@ export default function ResultsPage(props) {
 }
 
 export async function getServerSideProps() {
-  // Get list of recipes from mongo through API.
-  // Probably replace this with direct mongo call to be faster.
+  // Get list of recipes from mongo through API.  
   const response = await axios.get("http://localhost:3000/api/search-results/get");
   const recipes = await response.data[0].recipes;
 

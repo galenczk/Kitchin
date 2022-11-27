@@ -14,7 +14,7 @@ export default async function saveResults(req, res){
 
     await db.collection("fridgefood").insertOne(name);
 
-    res.send(`Successfully added ingredient ${name}`);
+    res.status(201).send(`Successfully added ingredient ${name}`);
 
   }catch (error){
     console.log(error)

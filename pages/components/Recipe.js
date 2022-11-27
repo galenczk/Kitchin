@@ -22,16 +22,16 @@ export default function Recipe(props) {
   
   return (
     <>
-      <tr class="text-start border-4">
-        <td className="p-2 border-2">{recipe.title}</td>
-        <td className="p-2 border-2 ">
+      <tr class="text-center odd:bg-slate-200 border-2 border-x-white odd:border-x-slate-200 border-y-slate-600">
+        <td className="p-2  text-start">{recipe.title}</td>
+        <td className="p-2  text-center">
           {time} {timePostfix}
         </td>
-        <td className="p-2 border-2 text-center">{recipe.missedIngredientCount}</td>
-        <td className="text-center border-2">{recipe.servings}</td>
-        <td className="text-center">
+        <td className="p-2  text-center">{recipe.missedIngredientCount}</td>
+        <td className="text-center ">{recipe.servings}</td>
+        <td className=" text-center">
           <button
-            className="btn-chef btn"
+            className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
               router.push(`${props.index}`);
             }}
