@@ -2,7 +2,6 @@
 import { GiCook } from "react-icons/gi";
 import { useRouter } from "next/router"
 
-// Import componenets
 
 export default function Recipe(props) {
 
@@ -29,12 +28,12 @@ export default function Recipe(props) {
           {time} {timePostfix}
         </td>
         <td className="p-2  text-center">{recipe.missedIngredientCount}</td>
-        <td className="text-center ">{recipe.servings}</td>
+        <td className="text-center ">{props.key}</td>
         <td className=" text-center">
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`0`);
+              router.push(`${props.key}`);
             }}
           >
             {<GiCook size="40" />}

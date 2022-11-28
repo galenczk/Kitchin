@@ -13,6 +13,11 @@ export default function ResultsPage(props) {
   // list of recipes
   const [recipes, setRecipes] = useState(props.recipes);
 
+  let recipeIndexArray = []
+  for (let index in recipes){
+    recipeIndexArray.push(index)
+  }  
+
   // DOM return
   return (
     <>
