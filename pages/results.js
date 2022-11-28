@@ -13,7 +13,9 @@ export default function ResultsPage(props) {
   // list of recipes
   const [recipes, setRecipes] = useState(props.recipes);
 
-  console.log(props.recipes)
+  recipes.map((item, key)=>{
+    console.log(key)
+  })
 
   // DOM return
   return (
