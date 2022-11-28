@@ -6,7 +6,7 @@ import { useRouter } from "next/router"
 
 export default function Recipe(props) {
 
-  console.log(props.key)
+  const key = props.key
 
   const router = useRouter() 
 
@@ -35,7 +35,7 @@ export default function Recipe(props) {
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`/${props.key}`);
+              router.push(`${key}`);
             }}
           >
             {<GiCook size="40" />}
