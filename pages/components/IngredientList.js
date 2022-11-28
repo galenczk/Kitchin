@@ -17,8 +17,8 @@ export default function IngredientList(props) {
           </tr>
         </thead>
         <tbody>
-          {ingredients.map((item, key) => {
-            return <Ingredient item={item} key={key} onDelete={props.onDelete} />;
+          {ingredients.map((item, index) => {
+            return <Ingredient item={item} index={index} onDelete={props.onDelete} />;
           })}
         </tbody>
       </table>

@@ -1,6 +1,7 @@
 // Import dependencies
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router"
+import Image from "next/image"
 import axios from "axios"
 
 
@@ -68,7 +69,7 @@ export default function DetailsPage(props) {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white my-12 mx-36 text-center border-4 border-slate-600">
+      <div class="mx-12 flex flex-col bg-white my-12 text-center border-4 border-slate-600">
         <div className="ml-auto">
           <button
             className=" btn-help border-l-2 border-sky-700"
@@ -80,7 +81,7 @@ export default function DetailsPage(props) {
           </button>
         </div>
 
-        <div className="flex">
+        <div className="flex m-6">
           <div className="my-auto mx-12">
             <h1 class="text-3xl font-bold">{thisRecipe.title}</h1>
             <p className="mt-8">
@@ -90,7 +91,12 @@ export default function DetailsPage(props) {
               </a>
             </p>
           </div>
-          <img className="mx-12 my-12 w-1/2 border-2 border-slate-500" src={thisRecipe.image}></img>
+          <Image
+            className="mx-auto my-auto w-1/3 border-2 border-slate-500 "
+            width={1000}
+            height={0}
+            src={thisRecipe.image}
+          />
         </div>
 
         <div className="w-1/3 mx-auto">

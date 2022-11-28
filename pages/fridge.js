@@ -85,7 +85,7 @@ export default function FridgePage(props) {
         <div className="h-12" />
 
         <div className="ml-8">
-          <h1 class="text-3xl">What's in the Fridge?</h1>
+          <h1 class="text-3xl">What&apos;'s in the Fridge?</h1>
         </div>
 
         <div className="h-12" />
