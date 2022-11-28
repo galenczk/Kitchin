@@ -18,7 +18,7 @@ export default function Tutorial() {
       <div className="items-center">
         <div className="p-4 bg-white text-center text-2xl">
           <p>Please scroll through the following images to learn about Kitchin.</p>
-          <p>Whenever you're ready, click "Get Started" to begin!</p>
+          <p>Whenever you&apos;re ready, click &quot;Get Started&quot; to begin!</p>
           <button
             className="btn btn-small btn-green border-b-4 border-emerald-600  m-6"
             onClick={() => {

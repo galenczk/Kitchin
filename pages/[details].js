@@ -102,8 +102,8 @@ export default function DetailsPage(props) {
         <div className="w-1/3 mx-auto">
           <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2">Ingredients</h1>
           <ul className="mt-6 text-start pl-6" style={{ listStyleType: "disc" }}>
-            {inputs.map((input) => (
-              <li className="m-1">
+            {inputs.map((input, key) => (
+              <li className="m-1" key={key}>
                 {input.amount} {input.unit} {input.originalName}
               </li>
             ))}
@@ -113,8 +113,10 @@ export default function DetailsPage(props) {
         <div className="w-3/4 mx-auto">
           <h1 className="text-2xl text-start border-b-2 border-slate-600 p-2 mt-2">Steps</h1>
           <ol className="my-6 text-start pl-6" style={{ listStyleType: "decimal" }}>
-            {steps.map((step) => (
-              <li className="m-2">{step}</li>
+            {steps.map((step, key) => (
+              <li className="m-2" key={key}>
+                {step}
+              </li>
             ))}
           </ol>
         </div>

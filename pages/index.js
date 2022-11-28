@@ -13,11 +13,11 @@ export default function Home() {
           <h1 className="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 className="text-xl mt-4">The helpful chef app</h2>
           <h3 className="mt-8">
-            Click <b className="text-emerald-700">"Get Started"</b> to start looking for recipes based on the
+            Click <b className="text-emerald-700">&quot;Get Started&quot;</b> to start looking for recipes based on the
             ingredients you have in your kitchen.
           </h3>
           <h3 className="mt-8">
-            If you get stuck at any point, click <b className="text-sky-700">"Help"</b> in the top right!{" "}
+            If you get stuck at any point, click <b className="text-sky-700">&quot;Help&quot;</b> in the top right!{" "}
           </h3>
 
           <div className="h-8" />

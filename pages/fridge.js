@@ -79,13 +79,20 @@ export default function FridgePage(props) {
     <>
       <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-slate-600 border-4">
         <div className="ml-auto">
-          <button className="btn-help border-l-2 border-sky-700" onClick={()=>{router.push("/tutorial#fridgeTut")}}>Help</button>
+          <button
+            className="btn-help border-l-2 border-sky-700"
+            onClick={() => {
+              router.push("/tutorial#fridgeTut");
+            }}
+          >
+            Help
+          </button>
         </div>
 
         <div className="h-12" />
 
         <div className="ml-8">
-          <h1 class="text-3xl">What&apos;'s in the Fridge?</h1>
+          <h1 class="text-3xl">What&apos;s in the Fridge?</h1>
         </div>
 
         <div className="h-12" />
@@ -122,7 +129,7 @@ export default function FridgePage(props) {
             <IngredientList ingredients={fridgeFood} onDelete={deleteFridgeFood} />
           ) : (
             <p className="bg-slate-300 p-2 text-center">
-              You don't have any ingredients listed currently. Add a few and start a search!
+              You don&apos;t have any ingredients listed currently. Add a few and start a search!
             </p>
           )}
         </div>
