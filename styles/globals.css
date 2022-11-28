@@ -39,6 +39,9 @@
 .btn-small {
     @apply font-bold py-1 px-2;
   }
+.btn-help {
+    @apply text-sm py-1 px-2 text-sky-700;
+  }
 
 .btn-row {
   @apply  px-4 ;
@@ -53,6 +56,10 @@
 .btn-red {
     @apply text-rose-700;
   }
+.btn-pink {
+    @apply text-fuchsia-500;
+  }
+
 
 .btn-green:hover {
     @apply bg-emerald-900 text-white border-emerald-900;
@@ -63,3 +70,12 @@
 .btn-red:hover {
     @apply bg-rose-900 text-white border-rose-900 rounded-2xl;
   }
+.btn-grey:hover {
+  @apply bg-slate-900 text-white border-slate-900 
+}
+.btn-help:hover {
+    @apply bg-sky-900 text-white border-sky-900;
+  }
+.btn-pink:hover {
+  @apply bg-fuchsia-700 text-white border-fuchsia-700;
+}

@@ -28,7 +28,7 @@ export default function Tutorial() {
             Get Started
           </button>
         </div>
-        <div className="min-w-full bg-white">
+        <div className="min-w-full bg-white ">
           <Image src={splashPage} className="mx-auto" />
         </div>
         <div className="h-16 bg-white" />
@@ -37,11 +37,11 @@ export default function Tutorial() {
         </div>
         <div className="h-16 bg-white" />
         <div className="min-w-full bg-white">
-          <Image src={resultsPage} className="mx-auto" />
+          <Image src={resultsPage} className="mx-auto" id="resultsTut" />
         </div>
         <div className="h-16 bg-white" />
         <div className="min-w-full bg-white">
-          <Image src={recipePage} className="mx-auto" />
+          <Image src={recipePage} className="mx-auto" id="recipeTut" />
         </div>
         <div className="h-16 bg-white" />
       </div>

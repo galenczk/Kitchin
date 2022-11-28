@@ -77,59 +77,63 @@ export default function FridgePage(props) {
   // DOM return
   return (
     <>
-        <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-slate-600 border-4">
-          <div className="h-12" />
+      <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-slate-600 border-4">
+        <div className="ml-auto">
+          <button className="btn-help border-l-2 border-sky-700" onClick={()=>{router.push("/tutorial#fridgeTut")}}>Help</button>
+        </div>
 
-          <div className="ml-8">
-            <h1 class="text-3xl">What's in the Fridge?</h1>
-          </div>
+        <div className="h-12" />
 
-          <div className="h-12" />
+        <div className="ml-8">
+          <h1 class="text-3xl">What's in the Fridge?</h1>
+        </div>
 
-          <div className="flex mx-auto">
-            <Formik
-              initialValues={{
-                name: "",
-              }}
-              onSubmit={async (values, actions) => {
-                await addFridgeFood(values);
-                actions.resetForm();
-              }}
-            >
-              <Form>
-                <Field
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="border-gray border-4"
-                  placeholder="Add an ingredient"
-                />
-                <button class="btn-small btn-blue border-b-4 border-r-4 border-sky-700 ml-8" type="submit" label="Add">
-                  Add
-                </button>
-              </Form>
-            </Formik>
-          </div>
+        <div className="h-12" />
 
-          <div className="h-8" />
+        <div className="flex mx-auto">
+          <Formik
+            initialValues={{
+              name: "",
+            }}
+            onSubmit={async (values, actions) => {
+              await addFridgeFood(values);
+              actions.resetForm();
+            }}
+          >
+            <Form>
+              <Field
+                type="text"
+                id="name"
+                name="name"
+                className="border-gray border-4"
+                placeholder="Add an ingredient"
+              />
+              <button class="btn-small btn-blue border-b-4 border-r-4 border-sky-700 ml-8" type="submit" label="Add">
+                Add
+              </button>
+            </Form>
+          </Formik>
+        </div>
 
-          <div className="mx-8">
-            {fridgeFood.length > 0 ? (
-              <IngredientList ingredients={fridgeFood} onDelete={deleteFridgeFood} />
-            ) : (
-              <p className="bg-slate-300 p-2 text-center">
-                You don't have any ingredients listed currently. Add a few and start a search!
-              </p>
-            )}
-          </div>
+        <div className="h-8" />
 
-          <div className="h-4" />
+        <div className="mx-8">
+          {fridgeFood.length > 0 ? (
+            <IngredientList ingredients={fridgeFood} onDelete={deleteFridgeFood} />
+          ) : (
+            <p className="bg-slate-300 p-2 text-center">
+              You don't have any ingredients listed currently. Add a few and start a search!
+            </p>
+          )}
+        </div>
 
-          <div class="mx-auto mt-8">
-            {loading === true ? (
-              <p className="py-2 px-8 text-white bg-emerald-900 font-bold">Loading...</p>
-            ) : (
-              <button
+        <div className="h-4" />
+
+        <div class="mx-auto mt-8">
+          {loading === true ? (
+            <p className="py-2 px-8 text-white bg-emerald-900 font-bold">Loading...</p>
+          ) : (
+            <button
               class="btn btn-green border-b-4 border-emerald-600 flex"
               label="Search Page"
               onClick={async () => {
@@ -138,13 +142,11 @@ export default function FridgePage(props) {
             >
               Search for Recipes
             </button>
-            )}
-            
-            
-          </div>
-
-          <div className="h-8" />
+          )}
         </div>
+
+        <div className="h-8" />
+      </div>
     </>
   );
 }

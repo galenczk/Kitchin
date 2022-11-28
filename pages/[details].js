@@ -36,17 +36,24 @@ export default function DetailsPage(props) {
   let steps = [];
 
   function parseSteps(){
-  let stepsArray = thisRecipe.analyzedInstructions[0].steps;
-  for (let item of stepsArray){
-    if(item.step.includes(";")){
-      splitSteps(item.step)
+  let instructions = thisRecipe.analyzedInstructions
+  let stepsArray = []
+  for (let object of instructions){
+    for (let step of object.steps){
+      stepsArray.push(step)
+    }
+  }
+  console.log(stepsArray)
+  for (let object of stepsArray){
+    if(stepsArray.length === 1 && object.step.includes(";")){
+      splitSteps(object.step)
       }else{
-        steps.push(item.step)
+        steps.push(object.step)
       }
     }
   }
   
-  // Handles steps in block of text
+  // Handles case where all steps are in one object separated by ";"
   function splitSteps(item){
     let blockSteps = item.split(";")
         for(let step of blockSteps){
@@ -55,11 +62,24 @@ export default function DetailsPage(props) {
       }
 
   parseSteps()
+  console.log(steps)
+  console.log(thisRecipe)
 
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white my-12 text-center border-4 border-slate-600">
+      <div class="flex flex-col bg-white my-12 mx-36 text-center border-4 border-slate-600">
+        <div className="ml-auto">
+          <button
+            className=" btn-help border-l-2 border-sky-700"
+            onClick={() => {
+              router.push("/tutorial#recipeTut");
+            }}
+          >
+            Help
+          </button>
+        </div>
+
         <div className="flex">
           <div className="my-auto mx-12">
             <h1 class="text-3xl font-bold">{thisRecipe.title}</h1>
@@ -70,7 +90,7 @@ export default function DetailsPage(props) {
               </a>
             </p>
           </div>
-          <img className="mx-12 my-12 w-1/2" src={thisRecipe.image}></img>
+          <img className="mx-12 my-12 w-1/2 border-2 border-slate-500" src={thisRecipe.image}></img>
         </div>
 
         <div className="w-1/3 mx-auto">

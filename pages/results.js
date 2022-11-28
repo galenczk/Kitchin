@@ -19,6 +19,16 @@ export default function ResultsPage(props) {
   return (
     <>
       <div class="flex flex-col bg-white w-3/4 my-12 min-h-[400px] text-center border-4 border-slate-600">
+        <div className="ml-auto">
+          <button
+            className=" btn-help border-l-2 border-sky-700"
+            onClick={() => {
+              router.push("/tutorial#resultsTut");
+            }}
+          >
+            Help
+          </button>
+        </div>
         <div className="ml-8">
           <h1 class="text-3xl mt-12 text-start">Recipes</h1>
         </div>
@@ -29,7 +39,7 @@ export default function ResultsPage(props) {
 
         <div>
           <button
-            className="btn btn-blue mb-8 border-b-4 border-r-4 border-sky-600"
+            className="btn btn-blue mb-8 border-b-4 border-r-4 border-sky-700"
             onClick={() => {
               router.push("/fridge");
             }}
