@@ -5,10 +5,6 @@ import Recipe from "./Recipe";
 
 export default function RecipeList(props) {
   const recipes = props.recipes;
-  let titleArray = []
-  for (let item of recipes){
-    titleArray.push(item.title)
-  }
 
   // DOM return
   return (

@@ -4,11 +4,13 @@ import { useRouter } from "next/router"
 
 // Import componenets
 
-export default function Recipe(props) {
+export default function Recipe({item, key}) {
 
   const router = useRouter() 
 
-  const recipe = props.item;  
+  const recipe = item;  
+  
+  
   // Handles readyInTime
   let time = recipe.readyInMinutes;
   let timePostfix = "Minutes";
@@ -33,7 +35,7 @@ export default function Recipe(props) {
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`${props.key}`);
+              router.push(`${key}`);
             }}
           >
             {<GiCook size="40" />}
