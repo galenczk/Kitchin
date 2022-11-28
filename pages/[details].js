@@ -7,12 +7,16 @@ import axios from "axios"
 
 export default function DetailsPage(props) {
 
-  console.log(props.data)
+  
+
 
   const router = useRouter();
   const recipeID = router.query.details;
 
   const thisRecipe = props.recipeList[recipeID];
+
+  console.log(props.recipeList);
+  console.log(recipeID)
 
   // Handles readyInTime
   let time = thisRecipe.readyInMinutes;
@@ -44,7 +48,6 @@ export default function DetailsPage(props) {
       stepsArray.push(step)
     }
   }
-  console.log(stepsArray)
   for (let object of stepsArray){
     if(stepsArray.length === 1 && object.step.includes(";")){
       splitSteps(object.step)
@@ -63,8 +66,6 @@ export default function DetailsPage(props) {
       }
 
   parseSteps()
-  console.log(steps)
-  console.log(thisRecipe)
 
   // DOM return
   return (

@@ -33,7 +33,7 @@ export default function Recipe(props) {
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`${props.index}`);
+              router.push(`${props.key}`);
             }}
           >
             {<GiCook size="40" />}
