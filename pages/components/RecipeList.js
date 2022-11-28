@@ -22,8 +22,8 @@ export default function RecipeList(props) {
           </tr>
         </thead>
         <tbody>
-          {recipes.map((item, key) => {
-            return <Recipe item={item} index={key} />;
+          {recipes.map((item, index) => {
+            return <Recipe item={item} key={index} />;
           })}
         </tbody>
       </table>
