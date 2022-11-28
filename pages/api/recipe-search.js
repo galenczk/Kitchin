@@ -16,7 +16,7 @@ export default async function searchRecipes(req, res) {
 async function callAPI(foodString, rng) {
   let options = {
     headers: {
-      "X-RapidAPI-Key": process.env.NEXT_PUBLIC_X_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": process.env.X_RAPIDAPI_KEY,
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
     params: {
