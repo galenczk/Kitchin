@@ -35,7 +35,7 @@ export default function Recipe({item, key}) {
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`${key}`);
+              router.push(`[${key}]`);
             }}
           >
             {<GiCook size="40" />}
