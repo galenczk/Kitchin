@@ -23,7 +23,7 @@ export default function RecipeList(props) {
         </thead>
         <tbody>
           {recipes.map((item, key) => {
-            return <Recipe item={item} key={key} />;
+            return <Recipe item={item} key={key} index={key} />;
           })}
         </tbody>
       </table>
