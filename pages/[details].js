@@ -6,10 +6,7 @@ import axios from "axios"
 
 
 export default function DetailsPage(props) {
-
   
-
-
   const router = useRouter();
   const recipeID = router.query.details;
 

@@ -1,15 +1,14 @@
 // Import dependencies
-import { GiCook, GiOpenBook } from "react-icons/gi";
+import { GiCook } from "react-icons/gi";
 import { useRouter } from "next/router"
 
 // Import componenets
 
-export default function Recipe({item, key}) {
+export default function Recipe(props) {
 
   const router = useRouter() 
 
-  const recipe = item;  
-  
+  const recipe = props.item;  
   
   // Handles readyInTime
   let time = recipe.readyInMinutes;
@@ -35,7 +34,7 @@ export default function Recipe({item, key}) {
           <button
             className="btn-small btn-green border-l-4 border-emerald-600"
             onClick={() => {
-              router.push(`[${key}]`);
+              router.push(`${props.index}`);
             }}
           >
             {<GiCook size="40" />}
