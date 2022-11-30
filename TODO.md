@@ -1,9 +1,8 @@
-- Host on Vercel?
+- Make an optional cuisine selection field on the fridge page
 
-Final Checklist:
+- Create a blurb on the splash page about the new cuisine selection feature
 
-- Create tutorial links on each page that link to relavent tutorial section.
+- Create a label "optional" above the cuisine selection field.
 
-- Look over assignment specs.
+- Create confimation alerts for backtracking after search has been conducted.
 
-- Look over code smells.

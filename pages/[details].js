@@ -6,16 +6,13 @@ import axios from "axios"
 
 
 export default function DetailsPage(props) {
-  
   const router = useRouter();
-  const recipeID = router.query.details;
 
+  // Grabbing specific recipe from API result
+  const recipeID = router.query.details;
   const thisRecipe = props.recipeList[recipeID];
 
-  console.log(props.recipeList);
-  console.log(recipeID)
-
-  // Handles readyInTime
+  // Handles readyInTime property of recipe
   let time = thisRecipe.readyInMinutes;
   let timePostfix = "Minutes";
   if (time > 60) {
@@ -26,7 +23,7 @@ export default function DetailsPage(props) {
     }
   }
 
-  // Handles ingredients
+  // Handles ingredients list
   function parseIngredients(){
     let ingredientsArray = thisRecipe.extendedIngredients
     return ingredientsArray
@@ -34,7 +31,7 @@ export default function DetailsPage(props) {
   let inputs = parseIngredients()
 
 
-  // Handles steps
+  // Handles steps list
   let steps = [];
 
   function parseSteps(){

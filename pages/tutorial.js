@@ -8,9 +8,7 @@ import fridgePage from "../public/tut-images/fridgePage.png";
 import resultsPage from "../public/tut-images/resultsPage.png";
 import recipePage from "../public/tut-images/recipePage.png";
 
-// Page function.
 export default function Tutorial() {
-  // Router for page navigation
   const router = useRouter();
   // DOM return
   return (

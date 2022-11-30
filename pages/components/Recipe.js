@@ -4,22 +4,21 @@ import { useRouter } from "next/router"
 
 
 export default function Recipe(props) {
+  const router = useRouter();
 
-  const router = useRouter() 
+  const recipe = props.item;
 
-  const recipe = props.item;  
-  
-  // Handles readyInTime
+  // Handles readyInTime property of recipe
   let time = recipe.readyInMinutes;
   let timePostfix = "Minutes";
   if (time > 60) {
     timePostfix = "Hour";
     time = Math.round(time / 60);
     if (time > 1) {
-      timePostfix = "Hours"
+      timePostfix = "Hours";
     }
   }
-  
+  // DOM return
   return (
     <>
       <tr class="text-center odd:bg-slate-200 border-2 border-x-white odd:border-x-slate-200 border-y-slate-600">

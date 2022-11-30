@@ -6,17 +6,11 @@ import { useRouter } from "next/router";
 // Import components
 import RecipeList from "./components/RecipeList";
 
-// Page function
 export default function ResultsPage(props) {
-  // Router for page navigation
   const router = useRouter();
+  
   // list of recipes
   const [recipes, setRecipes] = useState(props.recipes);
-
-  let recipeIndexArray = []
-  for (let index in recipes){
-    recipeIndexArray.push(index)
-  }  
 
   // DOM return
   return (

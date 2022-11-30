@@ -4,6 +4,7 @@ import { MdDelete } from "react-icons/md"
 // Import componenets
 
 export default function Ingredient(props) {
+  // DOM return
   return (
     <>
       <tr className="text-start odd:bg-slate-200 border-2 border-x-white odd:border-x-slate-200 border-y-slate-600">

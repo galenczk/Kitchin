@@ -7,13 +7,12 @@ import axios from "axios";
  */
 export default async function searchRecipes(req, res) {
   const foodString = req.body.string;
-  const rng = await callRNG()
-  const recipes = await callAPI(foodString, rng);
+  const recipes = await callAPI(foodString);
   res.status(200).send(recipes);
 }
 
 // Call to Spoontacular API
-async function callAPI(foodString, rng) {
+async function callAPI(foodString) {
   let options = {
     headers: {
       "X-RapidAPI-Key": process.env.X_RAPIDAPI_KEY,
@@ -30,7 +29,6 @@ async function callAPI(foodString, rng) {
       number: "10",
       limitLicense: "false",
       ranking: "2",
-      //offset: rng,
     },
   };
   const response = await axios.get(
@@ -39,11 +37,4 @@ async function callAPI(foodString, rng) {
   );
   const results = response.data.results;
   return results;
-}
-
-async function callRNG() {
-  const response = await axios.get("https://testmicro.vercel.app/");
-  let number = await response.data;
-  number = number % 20;
-  return number;
 }

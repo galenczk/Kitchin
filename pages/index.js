@@ -1,9 +1,7 @@
 // Import dependencies
 import { useRouter } from "next/router";
 
-// Page function.
 export default function Home() {
-  // Router for page navigation
   const router = useRouter();
   // DOM return
   return (

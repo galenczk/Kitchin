@@ -7,10 +7,9 @@ import axios from "axios";
 // Import components
 import IngredientList from "./components/IngredientList";
 
-// Page function.
 export default function FridgePage(props) {
-  // Router for page navigation
   const router = useRouter();
+  
   // fridgeFood is the list of ingredients
   const [fridgeFood, setFridgeFood] = useState(props.ingredients);
   // loading is a state that toggles loading indicator 
