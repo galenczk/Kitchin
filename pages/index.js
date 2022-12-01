@@ -43,7 +43,7 @@ export default function Home() {
             
           ) : (
             <button
-              className="btn btn-lg btn-green border-4 border-t-0 border-emerald-700"
+              className="btn btn-lg btn-green border-4  border-emerald-700"
               onClick={() => {
                 setLoading(true)
                 router.push("/fridge")
