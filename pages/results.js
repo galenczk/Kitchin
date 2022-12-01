@@ -28,7 +28,7 @@ export default function ResultsPage(props) {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white w-3/4 my-12 min-h-[400px] text-center border-4 border-slate-600">
+      <div class="flex flex-col bg-white w-3/4 my-12 min-h-[400px] text-center border-4 border-neutral-600">
         <div className="ml-auto">
           <button
             className=" btn-help border-l-2 border-fuchsia-600"

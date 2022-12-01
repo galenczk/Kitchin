@@ -72,7 +72,7 @@ export default function DetailsPage(props) {
   // DOM return
   return (
     <>
-      <div class="mx-12 flex flex-col bg-white my-12 text-center border-4 border-slate-600">
+      <div class="mx-12 flex flex-col bg-white my-12 text-center border-4 border-neutral-600">
         <div className="ml-auto">
           <button
             className=" btn-help border-l-2 border-fuchsia-600"
@@ -95,7 +95,7 @@ export default function DetailsPage(props) {
             </p>
           </div>
           <Image
-            className="mx-auto my-auto w-1/3 border-2 border-slate-500 "
+            className="mx-auto my-auto w-1/3 border-2 border-neutral-600 "
             width={1000}
             height={0}
             src={thisRecipe.image}
@@ -150,7 +150,7 @@ export default function DetailsPage(props) {
               >
                 Back to Results
               </button>
-              
+
               <button
                 className="btn-small btn-blue m-8 border-l-4 border-b-4 border-sky-600"
                 onClick={() => {

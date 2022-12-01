@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <>
-      <div className={`flex flex-col bg-white w-1/2 h-1/2 my-12 items-center border-slate-600 border-4`}>
+      <div className={`flex flex-col bg-white w-1/2 h-1/2 my-12 items-center border-neutral-600 border-4`}>
         <div className=" text-center mx-6">
           <h1 className="text-3xl mt-12">Welcome to kitchin</h1>
           <h2 className="text-xl mt-4">The helpful chef app</h2>

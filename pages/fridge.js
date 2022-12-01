@@ -81,7 +81,7 @@ export default function FridgePage(props) {
   // DOM return
   return (
     <>
-      <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-slate-600 border-4">
+      <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-neutral-600 border-4">
         <div className="ml-auto">
           <button
             className="btn-help border-l-2 border-fuchsia-600"
@@ -105,7 +105,7 @@ export default function FridgePage(props) {
           <Formik
             initialValues={{
               name: "",
-              diet: "*"
+              diet: "*",
             }}
             onSubmit={async (values, actions) => {
               await addFridgeFood(values);
@@ -126,8 +126,8 @@ export default function FridgePage(props) {
               </button>
               <div className="flex flex-col mt-6">
                 <p>Select a diet (optional)</p>
-                <Field name="diet"  as="select" className="p-2">
-                  <option value="*" >-</option>
+                <Field name="diet" as="select" className="p-2">
+                  <option value="*">-</option>
                   <option value="pescatarian">Pescetarian</option>
                   <option value="vegetarian">Vegetarian</option>
                   <option value="vegan">Vegan</option>
