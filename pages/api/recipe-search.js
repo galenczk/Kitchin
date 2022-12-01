@@ -30,7 +30,7 @@ async function callAPI(foodString, diet) {
       ignorePantry: "true",
       number: "10",
       limitLicense: "false",
-      ranking: "1",
+      ranking: "2",
     },
   };
   const response = await axios.get(
