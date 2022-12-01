@@ -30,7 +30,7 @@ export default function Recipe(props) {
         <td className="text-center ">{recipe.servings}</td>
         <td className=" text-center">
           <button
-            className="btn-small btn-green border-l-4 border-emerald-600"
+            className="btn-small btn-chef border-l-4 border-emerald-600"
             onClick={() => {
               router.push(`${props.index}`);
             }}

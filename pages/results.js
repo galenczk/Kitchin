@@ -2,6 +2,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
+import { confirmAlert } from "react-confirm-alert"
+import "react-confirm-alert/src/react-confirm-alert.css"
 
 // Import components
 import RecipeList from "./components/RecipeList";
@@ -11,6 +13,17 @@ export default function ResultsPage(props) {
   
   // list of recipes
   const [recipes, setRecipes] = useState(props.recipes);
+  // loading is a state that toggles loading indicator
+  const [loading, setLoading] = useState(false);
+
+  let recipeIndexArray = [];
+  for (let index in recipes) {
+    recipeIndexArray.push(index);
+  }
+
+    useEffect(() => {
+      setLoading(false);
+    }, []);
 
   // DOM return
   return (
@@ -18,7 +31,7 @@ export default function ResultsPage(props) {
       <div class="flex flex-col bg-white w-3/4 my-12 min-h-[400px] text-center border-4 border-slate-600">
         <div className="ml-auto">
           <button
-            className=" btn-help border-l-2 border-sky-700"
+            className=" btn-help border-l-2 border-fuchsia-600"
             onClick={() => {
               router.push("/tutorial#resultsTut");
             }}
@@ -34,11 +47,22 @@ export default function ResultsPage(props) {
           <RecipeList recipes={recipes} />
         </div>
 
-        <div>
+        <div className="place-self-start ml-8">
           <button
             className="btn btn-blue mb-8 border-b-4 border-r-4 border-sky-700"
             onClick={() => {
-              router.push("/fridge");
+              confirmAlert({
+                title: "Return to Search?",
+                buttons: [
+                  {
+                    label: "Yes",
+                    onClick: () => router.push("/fridge"),
+                  },
+                  {
+                    label: "No",
+                  },
+                ],
+              });
             }}
           >
             Back to Search
@@ -52,7 +76,7 @@ export default function ResultsPage(props) {
 // Get list of recipes with GSSP
 export async function getServerSideProps() {
   let recipeArray = [];
-  const response = await axios.get("https://kitchin.vercel.app/api/results-get");
+  const response = await axios.get("http://localhost:3000/api/results-get");
   const recipes = await response.data[0].recipes;
   for (let recipe of recipes) {
     recipeArray.push(recipe);
