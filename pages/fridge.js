@@ -18,7 +18,7 @@ export default function FridgePage(props) {
   // Add ingredient
   async function addFridgeFood(values) {
     if (values.name) {
-      const response = await axios.post("http://localhost:3000/api/food-add", { name: values.name });
+      const response = await axios.post("https://kitchin.vercel.app/api/food-add", { name: values.name });
       if (response.status === 201) {
         getFridgeFood();
       } else {
@@ -29,7 +29,7 @@ export default function FridgePage(props) {
 
   // Delete ingredient
   async function deleteFridgeFood(name) {
-    const response = await axios.post("http://localhost:3000/api/food-delete", { name: name });
+    const response = await axios.post("https://kitchin.vercel.app/api/food-delete", { name: name });
     if (response.status === 200) {
       getFridgeFood();
     }
@@ -38,7 +38,7 @@ export default function FridgePage(props) {
   // Get ingredients
   async function getFridgeFood() {
     const foodArray = [];
-    const response = await axios.get("http://localhost:3000/api/food-get");
+    const response = await axios.get("https://kitchin.vercel.app/api/food-get");
     const data = await response.data;
     for (var item of data) {
       foodArray.push(item.name);
@@ -63,9 +63,12 @@ export default function FridgePage(props) {
   // Calls API for search
   async function search() {
     setLoading(true)
-    const response = await axios.post("http://localhost:3000/api/recipe-search", { string: buildFoodString(), diet: formRef.current.values.diet });
+    const response = await axios.post("https://kitchin.vercel.app/api/recipe-search", {
+      string: buildFoodString(),
+      diet: formRef.current.values.diet,
+    });
     const recipes = response.data;
-    const saveResults = await axios.post("http://localhost:3000/api/results-add", recipes);
+    const saveResults = await axios.post("https://kitchin.vercel.app/api/results-add", recipes);
     router.push("/results")
   }
 
@@ -178,7 +181,7 @@ export default function FridgePage(props) {
 // Get list of ingredients with GSSP; faster re-load if ingredients doesn't change.
 export async function getServerSideProps() {
   const ingredientArray = [];
-  const response = await axios.get("http://localhost:3000/api/food-get");
+  const response = await axios.get("https://kitchin.vercel.app/api/food-get");
   const ingredients = await response.data;
   for (let item of ingredients) {
     ingredientArray.push(item.name);

@@ -28,7 +28,7 @@ export default function Home() {
           </h3>
           <h3 className="mt-6">
             Now you can search recipes by <b>diet</b>. <br />
-            It's optional and leaving the diet field blank will result in the same search results as before.
+            It&apos;s optional and leaving the diet field blank will result in the same search results as before.
             <br />
             Give it a try!
           </h3>
@@ -38,13 +38,12 @@ export default function Home() {
             <div>
               <p className="btn text-white bg-emerald-900 font-bold w-36 mx-auto">Loading...</p>
             </div>
-            
           ) : (
             <button
               className="btn btn-lg btn-green border-4  border-emerald-700"
               onClick={() => {
-                setLoading(true)
-                router.push("/fridge")
+                setLoading(true);
+                router.push("/fridge");
               }}
             >
               Get Started

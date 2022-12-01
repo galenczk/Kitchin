@@ -182,7 +182,7 @@ export default function DetailsPage(props) {
 
 export async function getServerSideProps() {
   // Get list of recipes from mongo through API.  
-  const response = await axios.get("http://localhost:3000/api/results-get");
+  const response = await axios.get("https://kitchin.vercel.app/api/results-get");
   const recipes = await response.data[0].recipes;
 
   return { props: {recipeList: recipes}}

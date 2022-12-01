@@ -76,7 +76,7 @@ export default function ResultsPage(props) {
 // Get list of recipes with GSSP
 export async function getServerSideProps() {
   let recipeArray = [];
-  const response = await axios.get("http://localhost:3000/api/results-get");
+  const response = await axios.get("https://kitchin.vercel.app/api/results-get");
   const recipes = await response.data[0].recipes;
   for (let recipe of recipes) {
     recipeArray.push(recipe);
