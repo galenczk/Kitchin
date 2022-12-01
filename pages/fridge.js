@@ -9,7 +9,7 @@ import IngredientList from "./components/IngredientList";
 
 export default function FridgePage(props) {
   const router = useRouter();
-  
+
   // fridgeFood is the list of ingredients
   const [fridgeFood, setFridgeFood] = useState(props.ingredients);
   // loading is a state that toggles loading indicator
@@ -62,21 +62,21 @@ export default function FridgePage(props) {
 
   // Calls API for search
   async function search() {
-    setLoading(true)
+    setLoading(true);
     const response = await axios.post("https://kitchin.vercel.app/api/recipe-search", {
       string: buildFoodString(),
       diet: formRef.current.values.diet,
     });
     const recipes = response.data;
     const saveResults = await axios.post("https://kitchin.vercel.app/api/results-add", recipes);
-    router.push("/results")
+    router.push("/results");
   }
 
   useEffect(() => {
     setLoading(false);
   }, []);
 
-  const formRef = useRef()
+  const formRef = useRef();
 
   // DOM return
   return (
@@ -138,7 +138,14 @@ export default function FridgePage(props) {
           </Formik>
         </div>
 
-        <div className="h-8" />
+        <div className="h-8 " />
+
+        <div className="w-3/4 mx-auto mb-4 text-center">
+          <p>
+            Try different combinations of ingredients and even different orderings to return new and interesting
+            results!
+          </p>
+        </div>
 
         <div className="mx-8">
           {fridgeFood.length > 0 ? (

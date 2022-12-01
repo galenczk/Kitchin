@@ -4,8 +4,8 @@ import { useRouter } from "next/router"
 
 
 export default function Recipe(props) {
+  
   const router = useRouter();
-
   const recipe = props.item;
 
   // Handles readyInTime property of recipe

@@ -1,5 +1,3 @@
-// Import dependencies
-
 //Import components
 import Recipe from "./Recipe";
 
