@@ -8,7 +8,7 @@ export default function Layout(props) {
       <header className="bg-neutral-700 text-white text-3xl p-2">
         <button onClick={()=>{router.push("/")}}>Kitchin</button>
       </header>
-      <main className={`bg-${number} flex flex-col items-center mb-auto flex-grow`}>{children}</main>
+      <main className={`bg-${props.number} flex flex-col items-center mb-auto flex-grow`}>{props.children}</main>
       <footer className="text-center bg-neutral-800 p-0.5 text-white">
         <p>Galen Ciszek &copy; 2022</p>
       </footer>
