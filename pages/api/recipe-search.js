@@ -20,7 +20,7 @@ async function callAPI(foodString, diet) {
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
     params: {
-      query: "",
+      query: "*",
       instructionsRequired: "true",
       fillIngredients: "true",
       addRecipeInformation: "true",
@@ -31,7 +31,7 @@ async function callAPI(foodString, diet) {
       number: "10",
       limitLicense: "false",
       sort: "max-used-ingredients",
-      ranking: "1",
+      ranking: "2",
     },
   };
   const response = await axios.get(
