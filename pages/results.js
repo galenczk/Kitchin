@@ -13,17 +13,11 @@ export default function ResultsPage(props) {
   
   // list of recipes
   const [recipes, setRecipes] = useState(props.recipes);
-  // loading is a state that toggles loading indicator
-  const [loading, setLoading] = useState(false);
 
   let recipeIndexArray = [];
   for (let index in recipes) {
     recipeIndexArray.push(index);
   }
-
-    useEffect(() => {
-      setLoading(false);
-    }, []);
 
   // DOM return
   return (
