@@ -3,17 +3,19 @@ import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router"
 import Image from "next/image"
 import axios from "axios"
+import { confirmAlert } from "react-confirm-alert";
+import "react-confirm-alert/src/react-confirm-alert.css";
 
 
 export default function DetailsPage(props) {
-  
   const router = useRouter();
-  const recipeID = router.query.details;
 
+  // Grabs a specific recipe to display
+  const recipeID = router.query.details;
   const thisRecipe = props.recipeList[recipeID];
 
-  console.log(props.recipeList);
-  console.log(recipeID)
+  // loading is a state that toggles loading indicator
+  const [loading, setLoading] = useState(false);
 
   // Handles readyInTime
   let time = thisRecipe.readyInMinutes;
@@ -27,42 +29,45 @@ export default function DetailsPage(props) {
   }
 
   // Handles ingredients
-  function parseIngredients(){
-    let ingredientsArray = thisRecipe.extendedIngredients
-    return ingredientsArray
+  function parseIngredients() {
+    let ingredientsArray = thisRecipe.extendedIngredients;
+    return ingredientsArray;
   }
-  let inputs = parseIngredients()
-
+  let inputs = parseIngredients();
 
   // Handles steps
   let steps = [];
 
-  function parseSteps(){
-  let instructions = thisRecipe.analyzedInstructions
-  let stepsArray = []
-  for (let object of instructions){
-    for (let step of object.steps){
-      stepsArray.push(step)
+  function parseSteps() {
+    let instructions = thisRecipe.analyzedInstructions;
+    let stepsArray = [];
+    for (let object of instructions) {
+      for (let step of object.steps) {
+        stepsArray.push(step);
+      }
     }
-  }
-  for (let object of stepsArray){
-    if(stepsArray.length === 1 && object.step.includes(";")){
-      splitSteps(object.step)
-      }else{
-        steps.push(object.step)
+    for (let object of stepsArray) {
+      if (stepsArray.length === 1 && object.step.includes(";")) {
+        splitSteps(object.step);
+      } else {
+        steps.push(object.step);
       }
     }
   }
-  
-  // Handles case where all steps are in one object separated by ";"
-  function splitSteps(item){
-    let blockSteps = item.split(";")
-        for(let step of blockSteps){
-          steps.push(step)
-        }
-      }
 
-  parseSteps()
+  // Handles case where all steps are in one object separated by ";"
+  function splitSteps(item) {
+    let blockSteps = item.split(";");
+    for (let step of blockSteps) {
+      steps.push(step);
+    }
+  }
+
+  parseSteps();
+
+    useEffect(() => {
+      setLoading(false);
+    }, []);
 
   // DOM return
   return (
@@ -70,7 +75,7 @@ export default function DetailsPage(props) {
       <div class="mx-12 flex flex-col bg-white my-12 text-center border-4 border-slate-600">
         <div className="ml-auto">
           <button
-            className=" btn-help border-l-2 border-sky-700"
+            className=" btn-help border-l-2 border-fuchsia-600"
             onClick={() => {
               router.push("/tutorial#recipeTut");
             }}
@@ -119,10 +124,56 @@ export default function DetailsPage(props) {
           </ol>
         </div>
 
-        <div className="flex justify-between mx-auto">
-          <button className="btn-small btn-blue m-6 border-r-4 border-b-4 border-sky-600">Back to Results</button>
-          <div className="w-24" />
-          <button className="btn-small btn-blue m-6 border-l-4 border-b-4 border-sky-600">Back to Search</button>
+        <div className="flex ">
+          {loading === true ? (
+            <p className=" btn text-white bg-sky-900 font-bold m-6">Loading...</p>
+          ) : (
+            <div className="flex flex-grow justify-between">
+              <button
+                className="btn-small btn-blue m-8 border-r-4 border-b-4 border-sky-600"
+                onClick={() => {
+                  confirmAlert({
+                    title: "Return to Results?",
+                    buttons: [
+                      {
+                        label: "Yes",
+                        onClick: () => {
+                          setLoading(true), router.push("/results");
+                        },
+                      },
+                      {
+                        label: "No",
+                      },
+                    ],
+                  });
+                }}
+              >
+                Back to Results
+              </button>
+              
+              <button
+                className="btn-small btn-blue m-8 border-l-4 border-b-4 border-sky-600"
+                onClick={() => {
+                  confirmAlert({
+                    title: "Return to Search?",
+                    buttons: [
+                      {
+                        label: "Yes",
+                        onClick: () => {
+                          setLoading(true), router.push("/fridge");
+                        },
+                      },
+                      {
+                        label: "No",
+                      },
+                    ],
+                  });
+                }}
+              >
+                Back to Search
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </>

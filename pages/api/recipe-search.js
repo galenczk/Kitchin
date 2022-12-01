@@ -7,16 +7,16 @@ import axios from "axios";
  */
 export default async function searchRecipes(req, res) {
   const foodString = req.body.string;
-  const rng = await callRNG()
-  const recipes = await callAPI(foodString, rng);
+  const diet = req.body.diet
+  const recipes = await callAPI(foodString, diet);
   res.status(200).send(recipes);
 }
 
 // Call to Spoontacular API
-async function callAPI(foodString, rng) {
+async function callAPI(foodString, diet) {
   let options = {
     headers: {
-      "X-RapidAPI-Key": process.env.X_RAPIDAPI_KEY,
+      "X-RapidAPI-Key": "c8546fca4fmshd88cb0f91ab8fddp11f32djsn1228ba2c02e0",
       "X-RapidAPI-Host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com",
     },
     params: {
@@ -26,6 +26,7 @@ async function callAPI(foodString, rng) {
       addRecipeInformation: "true",
       type: "main course",
       includeIngredients: foodString,
+      diet: diet,
       ignorePantry: "true",
       number: "10",
       limitLicense: "false",
@@ -39,11 +40,4 @@ async function callAPI(foodString, rng) {
   );
   const results = response.data.results;
   return results;
-}
-
-async function callRNG() {
-  const response = await axios.get("https://testmicro.vercel.app/");
-  let number = await response.data;
-  number = number % 20;
-  return number;
 }

@@ -40,7 +40,7 @@
     @apply font-bold py-1 px-2;
   }
 .btn-help {
-    @apply text-sm py-1 px-2 text-sky-700;
+    @apply text-sm font-bold py-1 px-2 text-fuchsia-600;
   }
 
 .btn-row {
@@ -74,7 +74,7 @@
   @apply bg-slate-900 text-white border-slate-900 
 }
 .btn-help:hover {
-    @apply bg-sky-900 text-white border-sky-900;
+    @apply bg-fuchsia-700 text-white border-fuchsia-700;
   }
 .btn-pink:hover {
   @apply bg-fuchsia-700 text-white border-fuchsia-700;

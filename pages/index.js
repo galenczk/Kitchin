@@ -1,11 +1,20 @@
 // Import dependencies
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+
 
 // Page function.
 export default function Home() {
   // Router for page navigation
   const router = useRouter();
-  // DOM return
+
+  // loading is a state that toggles loading indicator
+  const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+      setLoading(false);
+    }, []);
+
   return (
     <>
       <div className={`flex flex-col bg-white w-1/2 h-1/2 my-12 items-center border-slate-600 border-4`}>
@@ -16,30 +25,45 @@ export default function Home() {
             Click <b className="text-emerald-700">&quot;Get Started&quot;</b> to start looking for recipes based on the
             ingredients you have in your kitchen.
           </h3>
-          <h3 className="mt-8">
-            If you get stuck at any point, click <b className="text-sky-700">&quot;Help&quot;</b> in the top right!{" "}
+          <h3 className="">
+            If you get stuck at any point, click <b className="text-fuchsia-600">&quot;Help&quot;</b> in the top right!{" "}
+          </h3>
+          <h3 className="mt-6">
+            Now you can search recipes by <b>diet</b>. <br />
+            It's optional and leaving the diet field blank will result in the same search results as before.
+            <br />
+            Give it a try!
           </h3>
 
-          <div className="h-8" />
-          <button
-            className="btn btn-lg btn-green border-4 border-t-0 border-emerald-700"
-            onClick={() => router.push("/fridge")}
-          >
-            Get Started
-          </button>
+          <div className="h-8 mt-8" />
+          {loading === true ? (
+            <div>
+              <p className="btn text-white bg-emerald-900 font-bold w-36 mx-auto">Loading...</p>
+            </div>
+            
+          ) : (
+            <button
+              className="btn btn-lg btn-green border-4 border-t-0 border-emerald-700"
+              onClick={() => {
+                setLoading(true)
+                router.push("/fridge")
+              }}
+            >
+              Get Started
+            </button>
+          )}
 
           <h3 className="mt-8">- or -</h3>
           <h3 className="mt-6">
-            If this is your first time,{" "}
+            If you are new to Kitchin, read the{" "}
             <button
               className="btn-small btn-blue border-b-2 border-sky-700"
               onClick={() => {
                 router.push("/tutorial");
               }}
             >
-              click here
+              Tutorial Page
             </button>{" "}
-            to view a tutorial page.{" "}
           </h3>
 
           <div className="h-12" />

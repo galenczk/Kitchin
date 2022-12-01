@@ -1,7 +1,7 @@
 // Import dependencies
 import { Formik, Field, Form } from "formik";
 import { useRouter } from "next/router";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import axios from "axios";
 
 // Import components
@@ -13,8 +13,8 @@ export default function FridgePage(props) {
   const router = useRouter();
   // fridgeFood is the list of ingredients
   const [fridgeFood, setFridgeFood] = useState(props.ingredients);
-  // loading is a state that toggles loading indicator 
-  const [loading, setLoading] = useState(false)
+  // loading is a state that toggles loading indicator
+  const [loading, setLoading] = useState(false);
 
   // Add ingredient
   async function addFridgeFood(values) {
@@ -64,15 +64,17 @@ export default function FridgePage(props) {
   // Calls API for search
   async function search() {
     setLoading(true)
-    const response = await axios.post("http://localhost:3000/api/recipe-search", { string: buildFoodString() });
+    const response = await axios.post("http://localhost:3000/api/recipe-search", { string: buildFoodString(), diet: formRef.current.values.diet });
     const recipes = response.data;
     const saveResults = await axios.post("http://localhost:3000/api/results-add", recipes);
     router.push("/results")
   }
 
   useEffect(() => {
-    setLoading(false)
+    setLoading(false);
   }, []);
+
+  const formRef = useRef()
 
   // DOM return
   return (
@@ -80,7 +82,7 @@ export default function FridgePage(props) {
       <div class="flex flex-col bg-white w-1/2 h-1/2 my-12 border-slate-600 border-4">
         <div className="ml-auto">
           <button
-            className="btn-help border-l-2 border-sky-700"
+            className="btn-help border-l-2 border-fuchsia-600"
             onClick={() => {
               router.push("/tutorial#fridgeTut");
             }}
@@ -101,11 +103,13 @@ export default function FridgePage(props) {
           <Formik
             initialValues={{
               name: "",
+              diet: "*"
             }}
             onSubmit={async (values, actions) => {
               await addFridgeFood(values);
               actions.resetForm();
             }}
+            innerRef={formRef}
           >
             <Form>
               <Field
@@ -118,6 +122,16 @@ export default function FridgePage(props) {
               <button class="btn-small btn-blue border-b-4 border-r-4 border-sky-700 ml-8" type="submit" label="Add">
                 Add
               </button>
+              <div className="flex flex-col mt-6">
+                <p>Select a diet (optional)</p>
+                <Field name="diet"  as="select" className="p-2">
+                  <option value="*" >-</option>
+                  <option value="pescatarian">Pescetarian</option>
+                  <option value="vegetarian">Vegetarian</option>
+                  <option value="vegan">Vegan</option>
+                  <option value="paleo">Paleo</option>
+                </Field>
+              </div>
             </Form>
           </Formik>
         </div>
@@ -135,6 +149,10 @@ export default function FridgePage(props) {
         </div>
 
         <div className="h-4" />
+
+        <div className="mx-auto">
+          <Formik></Formik>
+        </div>
 
         <div class="mx-auto mt-8">
           {loading === true ? (
