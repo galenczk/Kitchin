@@ -30,8 +30,6 @@ async function callAPI(foodString, diet) {
       ignorePantry: "true",
       number: "10",
       limitLicense: "false",
-      sort: "max-used-ingredients",
-      sortDirection: "desc",
       ranking: "2",
     },
   };
