@@ -28,7 +28,7 @@ async function callAPI(foodString, diet) {
       includeIngredients: foodString,
       diet: diet,
       ignorePantry: "true",
-      number: "10",
+      number: "20",
       limitLicense: "false",
       ranking: "2",
     },
